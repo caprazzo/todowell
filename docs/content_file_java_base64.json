@@ -1,0 +1,17 @@
+{
+  "name": "ConnectionInfo.java",
+  "path": "botto-annotations/src/main/java/botto/xmpp/annotations/ConnectionInfo.java",
+  "sha": "a153391fd57dfb1e8c3c5f25e21e70e65fe3008a",
+  "size": 104,
+  "url": "https://api.github.com/repos/mcaprari/botto/contents/botto-annotations/src/main/java/botto/xmpp/annotations/ConnectionInfo.java?ref=snapshot",
+  "html_url": "https://github.com/mcaprari/botto/blob/snapshot/botto-annotations/src/main/java/botto/xmpp/annotations/ConnectionInfo.java",
+  "git_url": "https://api.github.com/repos/mcaprari/botto/git/blobs/a153391fd57dfb1e8c3c5f25e21e70e65fe3008a",
+  "type": "file",
+  "content": "cGFja2FnZSBib3R0by54bXBwLmFubm90YXRpb25zOwoKcHVibGljIGludGVy\nZmFjZSBDb25uZWN0aW9uSW5mbyB7CgogICAgcHVibGljIGJvb2xlYW4gaXND\nb25uZWN0ZWQoKTsKfQo=\n",
+  "encoding": "base64",
+  "_links": {
+    "self": "https://api.github.com/repos/mcaprari/botto/contents/botto-annotations/src/main/java/botto/xmpp/annotations/ConnectionInfo.java?ref=snapshot",
+    "git": "https://api.github.com/repos/mcaprari/botto/git/blobs/a153391fd57dfb1e8c3c5f25e21e70e65fe3008a",
+    "html": "https://github.com/mcaprari/botto/blob/snapshot/botto-annotations/src/main/java/botto/xmpp/annotations/ConnectionInfo.java"
+  }
+}

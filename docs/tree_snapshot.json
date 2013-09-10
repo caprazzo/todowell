@@ -1,0 +1,73 @@
+{
+  "sha": "77d2648b6d956f1173dadf456ffe1fc6e2b5cb97",
+  "url": "https://api.github.com/repos/mcaprari/botto/git/trees/77d2648b6d956f1173dadf456ffe1fc6e2b5cb97",
+  "tree": [
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c9a614443fe110c0e23b2cbeec2eafec3648faf",
+      "path": ".gitignore",
+      "size": 45,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/5c9a614443fe110c0e23b2cbeec2eafec3648faf"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1c44fbccce2d5305342dc70cd7640d44b7cec3a8",
+      "path": ".travis.yml",
+      "size": 118,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/1c44fbccce2d5305342dc70cd7640d44b7cec3a8"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "25f8117ce20e0cdaecf5ee539a87796542100a2c",
+      "path": "README.md",
+      "size": 3776,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/25f8117ce20e0cdaecf5ee539a87796542100a2c"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fa628e12b958ebc7c5ef4659d30d0cb77af9ddb6",
+      "path": "botto-annotations",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/fa628e12b958ebc7c5ef4659d30d0cb77af9ddb6"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ba5071757415b6b8524fd132962a7798b4f5bbf3",
+      "path": "botto-connector",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/ba5071757415b6b8524fd132962a7798b4f5bbf3"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8c494982292a4ab422e9ec0d0d1cb14507676954",
+      "path": "botto-connectors",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/8c494982292a4ab422e9ec0d0d1cb14507676954"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "dae88c0fe6dc8f6bdc10d789456af74ad5f996b3",
+      "path": "botto-examples",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/dae88c0fe6dc8f6bdc10d789456af74ad5f996b3"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "bb8549677e6c803ba57c1e87a247dd3b82d7188f",
+      "path": "botto-service",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/bb8549677e6c803ba57c1e87a247dd3b82d7188f"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "8544c93c1a2a48fc5ff44d44bce05380f088fa63",
+      "path": "pom.xml",
+      "size": 3229,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/8544c93c1a2a48fc5ff44d44bce05380f088fa63"
+    }
+  ]
+}

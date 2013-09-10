@@ -1,0 +1,38 @@
+[
+  {
+    "ref": "refs/heads/connection-manager",
+    "url": "https://api.github.com/repos/mcaprari/botto/git/refs/heads/connection-manager",
+    "object": {
+      "sha": "05fc4e16db48d11dbfb1f106d59ca467d5f60b64",
+      "type": "commit",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/commits/05fc4e16db48d11dbfb1f106d59ca467d5f60b64"
+    }
+  },
+  {
+    "ref": "refs/heads/master",
+    "url": "https://api.github.com/repos/mcaprari/botto/git/refs/heads/master",
+    "object": {
+      "sha": "e6385af99759747c17163c3a47cf2571311390bf",
+      "type": "commit",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/commits/e6385af99759747c17163c3a47cf2571311390bf"
+    }
+  },
+  {
+    "ref": "refs/heads/snapshot",
+    "url": "https://api.github.com/repos/mcaprari/botto/git/refs/heads/snapshot",
+    "object": {
+      "sha": "77d2648b6d956f1173dadf456ffe1fc6e2b5cb97",
+      "type": "commit",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/commits/77d2648b6d956f1173dadf456ffe1fc6e2b5cb97"
+    }
+  },
+  {
+    "ref": "refs/tags/0.7",
+    "url": "https://api.github.com/repos/mcaprari/botto/git/refs/tags/0.7",
+    "object": {
+      "sha": "e6385af99759747c17163c3a47cf2571311390bf",
+      "type": "commit",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/commits/e6385af99759747c17163c3a47cf2571311390bf"
+    }
+  }
+]

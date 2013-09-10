@@ -1,0 +1,1214 @@
+{
+  "sha": "77d2648b6d956f1173dadf456ffe1fc6e2b5cb97",
+  "url": "https://api.github.com/repos/mcaprari/botto/git/trees/77d2648b6d956f1173dadf456ffe1fc6e2b5cb97",
+  "tree": [
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5c9a614443fe110c0e23b2cbeec2eafec3648faf",
+      "path": ".gitignore",
+      "size": 45,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/5c9a614443fe110c0e23b2cbeec2eafec3648faf"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "1c44fbccce2d5305342dc70cd7640d44b7cec3a8",
+      "path": ".travis.yml",
+      "size": 118,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/1c44fbccce2d5305342dc70cd7640d44b7cec3a8"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "25f8117ce20e0cdaecf5ee539a87796542100a2c",
+      "path": "README.md",
+      "size": 3776,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/25f8117ce20e0cdaecf5ee539a87796542100a2c"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "fa628e12b958ebc7c5ef4659d30d0cb77af9ddb6",
+      "path": "botto-annotations",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/fa628e12b958ebc7c5ef4659d30d0cb77af9ddb6"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "7c5b8dbc76aa4e354c266b10532b188ff4f7e4e4",
+      "path": "botto-annotations/pom.xml",
+      "size": 1175,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/7c5b8dbc76aa4e354c266b10532b188ff4f7e4e4"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "15a5beaccc232a3ab7bf7a02ccb2d0e3e3d374ee",
+      "path": "botto-annotations/readme.md",
+      "size": 138,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/15a5beaccc232a3ab7bf7a02ccb2d0e3e3d374ee"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2249e544675cf8308d3f65322f2607b81de4eeac",
+      "path": "botto-annotations/src",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/2249e544675cf8308d3f65322f2607b81de4eeac"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b3bb8f551974fde214a53d303c796deda5846c55",
+      "path": "botto-annotations/src/main",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/b3bb8f551974fde214a53d303c796deda5846c55"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "786a91a20e57fa551281723ebf9c0c12273f0743",
+      "path": "botto-annotations/src/main/java",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/786a91a20e57fa551281723ebf9c0c12273f0743"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9b270b361fabf6bb29339026d21b37b1e5196d8f",
+      "path": "botto-annotations/src/main/java/botto",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/9b270b361fabf6bb29339026d21b37b1e5196d8f"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d97da423544813840f5d081e999236998a85055d",
+      "path": "botto-annotations/src/main/java/botto/xmpp",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/d97da423544813840f5d081e999236998a85055d"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e671fe5923efe43ea9f67a35313a750a7be6869c",
+      "path": "botto-annotations/src/main/java/botto/xmpp/annotations",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/e671fe5923efe43ea9f67a35313a750a7be6869c"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a153391fd57dfb1e8c3c5f25e21e70e65fe3008a",
+      "path": "botto-annotations/src/main/java/botto/xmpp/annotations/ConnectionInfo.java",
+      "size": 104,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/a153391fd57dfb1e8c3c5f25e21e70e65fe3008a"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "59f2dd71ce0f4581f8a08a79c5b8595c81b448ad",
+      "path": "botto-annotations/src/main/java/botto/xmpp/annotations/Context.java",
+      "size": 485,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/59f2dd71ce0f4581f8a08a79c5b8595c81b448ad"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "de313d463f0c97fe3850cfe44503b36336177e03",
+      "path": "botto-annotations/src/main/java/botto/xmpp/annotations/PacketOutput.java",
+      "size": 136,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/de313d463f0c97fe3850cfe44503b36336177e03"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "a3b477a439c50b8d24e01fe4c8dc3a63a37424e0",
+      "path": "botto-annotations/src/main/java/botto/xmpp/annotations/Receive.java",
+      "size": 302,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/a3b477a439c50b8d24e01fe4c8dc3a63a37424e0"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "ba5071757415b6b8524fd132962a7798b4f5bbf3",
+      "path": "botto-connector",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/ba5071757415b6b8524fd132962a7798b4f5bbf3"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4743ba7f258f05b7870ec519cf1278dd33f07ba5",
+      "path": "botto-connector/pom.xml",
+      "size": 1896,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/4743ba7f258f05b7870ec519cf1278dd33f07ba5"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9b0da9343d0104854889b9862e024a97538c6a8e",
+      "path": "botto-connector/src",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/9b0da9343d0104854889b9862e024a97538c6a8e"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4b32f34fa519a38ab6afd9ea6059c1a11343e655",
+      "path": "botto-connector/src/main",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/4b32f34fa519a38ab6afd9ea6059c1a11343e655"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "df8f6500466a843a6ef63927674f7172447d7a58",
+      "path": "botto-connector/src/main/java",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/df8f6500466a843a6ef63927674f7172447d7a58"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7ed3f0ecf32323f2903f5bef7e50648a61c9ede3",
+      "path": "botto-connector/src/main/java/botto",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/7ed3f0ecf32323f2903f5bef7e50648a61c9ede3"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "435b1b3d704431685826b585d5954783590cc1a2",
+      "path": "botto-connector/src/main/java/botto/xmpp",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/435b1b3d704431685826b585d5954783590cc1a2"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "cf520623278f2112e1cc6769f7e99488a71a2386",
+      "path": "botto-connector/src/main/java/botto/xmpp/botto",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/cf520623278f2112e1cc6769f7e99488a71a2386"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e437d88f406c0691e923dc92a83ee32b610092ca",
+      "path": "botto-connector/src/main/java/botto/xmpp/botto/xmpp",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/e437d88f406c0691e923dc92a83ee32b610092ca"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8f9df39ef1723799c8f24b7c7e7891b9dc9200d5",
+      "path": "botto-connector/src/main/java/botto/xmpp/botto/xmpp/connector",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/8f9df39ef1723799c8f24b7c7e7891b9dc9200d5"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "6b3232e56640ba3928804f4979fe00448aedbbc0",
+      "path": "botto-connector/src/main/java/botto/xmpp/botto/xmpp/connector/BotConnection.java",
+      "size": 388,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/6b3232e56640ba3928804f4979fe00448aedbbc0"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "101e18edff95f6a9a70fc972cfaa9f70b99efa98",
+      "path": "botto-connector/src/main/java/botto/xmpp/botto/xmpp/connector/BotConnectionInfo.java",
+      "size": 479,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/101e18edff95f6a9a70fc972cfaa9f70b99efa98"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2d2f3d8318c9ac50959e0b6e921b3827ef50f6d5",
+      "path": "botto-connector/src/main/java/botto/xmpp/botto/xmpp/connector/Channel.java",
+      "size": 950,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/2d2f3d8318c9ac50959e0b6e921b3827ef50f6d5"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fe3ad84a47c3916d1f8a98bda3fca47d7f4b7b83",
+      "path": "botto-connector/src/main/java/botto/xmpp/botto/xmpp/connector/ChannelListener.java",
+      "size": 340,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/fe3ad84a47c3916d1f8a98bda3fca47d7f4b7b83"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "5fd9f13c09e98cc8c6be2acde908c5405b4e31df",
+      "path": "botto-connector/src/main/java/botto/xmpp/botto/xmpp/connector/ConnectionInfoListener.java",
+      "size": 188,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/5fd9f13c09e98cc8c6be2acde908c5405b4e31df"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "556b683407cac8fde6bdbf0b6d2c7f3c01f12bce",
+      "path": "botto-connector/src/main/java/botto/xmpp/botto/xmpp/connector/Connector.java",
+      "size": 4060,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/556b683407cac8fde6bdbf0b6d2c7f3c01f12bce"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cce3c569a5511087b870c60716b86f1ae6bf6fa1",
+      "path": "botto-connector/src/main/java/botto/xmpp/botto/xmpp/connector/ConnectorConfiguration.java",
+      "size": 115,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/cce3c569a5511087b870c60716b86f1ae6bf6fa1"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "37afeda718444bb77b4d14e959ae59916a12142a",
+      "path": "botto-connector/src/main/java/botto/xmpp/botto/xmpp/connector/ConnectorException.java",
+      "size": 459,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/37afeda718444bb77b4d14e959ae59916a12142a"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "fb95d540d28a3aab2418f526913b15d1efb95484",
+      "path": "botto-connector/src/main/java/botto/xmpp/botto/xmpp/connector/ConnectorId.java",
+      "size": 1495,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/fb95d540d28a3aab2418f526913b15d1efb95484"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6750e312ca6c2cfb826f5429f00bb2bcd702a2b8",
+      "path": "botto-connector/src/main/java/botto/xmpp/botto/xmpp/connector/ConnectorPacketLstener.java",
+      "size": 242,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/6750e312ca6c2cfb826f5429f00bb2bcd702a2b8"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8c494982292a4ab422e9ec0d0d1cb14507676954",
+      "path": "botto-connectors",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/8c494982292a4ab422e9ec0d0d1cb14507676954"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "70f879170265ad5579b618154d706865b7a4742d",
+      "path": "botto-connectors/botto-connector-mock",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/70f879170265ad5579b618154d706865b7a4742d"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "31a6f859d0e4d6e3d56aa78d154081afb69ec368",
+      "path": "botto-connectors/botto-connector-mock/pom.xml",
+      "size": 748,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/31a6f859d0e4d6e3d56aa78d154081afb69ec368"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c3362a6ad5a55c91ad4f37fe0766b5d4ce00bf39",
+      "path": "botto-connectors/botto-connector-mock/src",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/c3362a6ad5a55c91ad4f37fe0766b5d4ce00bf39"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7bd54f9288f07b6e8d0fed609ec908e4b1817103",
+      "path": "botto-connectors/botto-connector-mock/src/main",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/7bd54f9288f07b6e8d0fed609ec908e4b1817103"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2cb7dc2d85cfe0c932b10fce32ba11045578808e",
+      "path": "botto-connectors/botto-connector-mock/src/main/java",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/2cb7dc2d85cfe0c932b10fce32ba11045578808e"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "44f55d941eb08150bb3c655419aec2dca1cc499e",
+      "path": "botto-connectors/botto-connector-mock/src/main/java/botto",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/44f55d941eb08150bb3c655419aec2dca1cc499e"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "302dd26b1f596a55ff9a718eb56d931e7023401f",
+      "path": "botto-connectors/botto-connector-mock/src/main/java/botto/xmpp",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/302dd26b1f596a55ff9a718eb56d931e7023401f"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4f2c4eac6535ef62fbc0fd0faa87332a0ef6d87d",
+      "path": "botto-connectors/botto-connector-mock/src/main/java/botto/xmpp/connectors",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/4f2c4eac6535ef62fbc0fd0faa87332a0ef6d87d"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "726118143d10dfebe372b69f2acfd6664831229f",
+      "path": "botto-connectors/botto-connector-mock/src/main/java/botto/xmpp/connectors/mock",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/726118143d10dfebe372b69f2acfd6664831229f"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "838f6d6fdcfcca72f1f9d7c5527610263781c2a4",
+      "path": "botto-connectors/botto-connector-mock/src/main/java/botto/xmpp/connectors/mock/MockBotConnection.java",
+      "size": 930,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/838f6d6fdcfcca72f1f9d7c5527610263781c2a4"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "cc7b21313c4e40e4d7900345a8e8d41242631bc1",
+      "path": "botto-connectors/botto-connector-mock/src/main/java/botto/xmpp/connectors/mock/MockConnector.java",
+      "size": 2077,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/cc7b21313c4e40e4d7900345a8e8d41242631bc1"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8517126cb9e5163cade931ed88abf77e9a2529c3",
+      "path": "botto-connectors/botto-connector-mock/src/main/java/botto/xmpp/connectors/mock/MockConnectorConfiguration.java",
+      "size": 540,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/8517126cb9e5163cade931ed88abf77e9a2529c3"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4b877b1c529b076d2431a5b3cbbbfb00e4ecb31a",
+      "path": "botto-connectors/botto-connector-smack",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/4b877b1c529b076d2431a5b3cbbbfb00e4ecb31a"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "763187ebc046e0197bd2d703f45035f811b579ee",
+      "path": "botto-connectors/botto-connector-smack/pom.xml",
+      "size": 1789,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/763187ebc046e0197bd2d703f45035f811b579ee"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "98d7abfb7b4c4a01311cf2e74aa53b1a18b6405d",
+      "path": "botto-connectors/botto-connector-smack/src",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/98d7abfb7b4c4a01311cf2e74aa53b1a18b6405d"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "50d3c0a271b6b4ce083c6fc7b82b368d8f72b6bb",
+      "path": "botto-connectors/botto-connector-smack/src/main",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/50d3c0a271b6b4ce083c6fc7b82b368d8f72b6bb"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a7255f58e403b51fbbe96eaad1daddc4928741cb",
+      "path": "botto-connectors/botto-connector-smack/src/main/java",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/a7255f58e403b51fbbe96eaad1daddc4928741cb"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "21774335b4a005aa5533bf462dbc992647271869",
+      "path": "botto-connectors/botto-connector-smack/src/main/java/botto",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/21774335b4a005aa5533bf462dbc992647271869"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9c972d281fd7fcd40d9bd0b2b09b7d535194c66a",
+      "path": "botto-connectors/botto-connector-smack/src/main/java/botto/xmpp",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/9c972d281fd7fcd40d9bd0b2b09b7d535194c66a"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2764865193e5c467455097de798d61152489066e",
+      "path": "botto-connectors/botto-connector-smack/src/main/java/botto/xmpp/connectors",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/2764865193e5c467455097de798d61152489066e"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "73d21e21e67232095297e73577355ff8a60526f6",
+      "path": "botto-connectors/botto-connector-smack/src/main/java/botto/xmpp/connectors/smack",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/73d21e21e67232095297e73577355ff8a60526f6"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "d21476c00a61af44607706cff8e1d6e52091ae47",
+      "path": "botto-connectors/botto-connector-smack/src/main/java/botto/xmpp/connectors/smack/PacketTypeConverter.java",
+      "size": 3640,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/d21476c00a61af44607706cff8e1d6e52091ae47"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "1a1ce1c8acb1472676140f612c06e6f832942b53",
+      "path": "botto-connectors/botto-connector-smack/src/main/java/botto/xmpp/connectors/smack/SmackBotConnection.java",
+      "size": 9024,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/1a1ce1c8acb1472676140f612c06e6f832942b53"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "e90c0c3c4f08281bbf9568d508b631ecbd9508f9",
+      "path": "botto-connectors/botto-connector-smack/src/main/java/botto/xmpp/connectors/smack/SmackConnector.java",
+      "size": 2023,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/e90c0c3c4f08281bbf9568d508b631ecbd9508f9"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0ab79a74a608238b5dac2a85086cf64c98bd1efc",
+      "path": "botto-connectors/botto-connector-smack/src/main/java/botto/xmpp/connectors/smack/SmackConnectorConfiguration.java",
+      "size": 1024,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/0ab79a74a608238b5dac2a85086cf64c98bd1efc"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "40739678a3036559f5df08874392123a8e36d6df",
+      "path": "botto-connectors/botto-connector-whack",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/40739678a3036559f5df08874392123a8e36d6df"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6d44da6c8fa8e3504c45539fc6b424220b7ea986",
+      "path": "botto-connectors/botto-connector-whack/pom.xml",
+      "size": 1464,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/6d44da6c8fa8e3504c45539fc6b424220b7ea986"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "909b1ccc58c85f978a5915825efbfd43191ec651",
+      "path": "botto-connectors/botto-connector-whack/src",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/909b1ccc58c85f978a5915825efbfd43191ec651"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "19c948d68601bd3da154d54f72f11a44a7bd3d62",
+      "path": "botto-connectors/botto-connector-whack/src/main",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/19c948d68601bd3da154d54f72f11a44a7bd3d62"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2dde3dce0e7ea60d6557b7a8a85b91c68005e8d6",
+      "path": "botto-connectors/botto-connector-whack/src/main/java",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/2dde3dce0e7ea60d6557b7a8a85b91c68005e8d6"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "623a7ea6c2120746c4a6f4455b8d72053ec47085",
+      "path": "botto-connectors/botto-connector-whack/src/main/java/botto",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/623a7ea6c2120746c4a6f4455b8d72053ec47085"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "387acbed39e621d9ecdf6a85bd9d1de294726076",
+      "path": "botto-connectors/botto-connector-whack/src/main/java/botto/xmpp",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/387acbed39e621d9ecdf6a85bd9d1de294726076"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9c803fd22cf20d5130b7bac135af77decd62219e",
+      "path": "botto-connectors/botto-connector-whack/src/main/java/botto/xmpp/connectors",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/9c803fd22cf20d5130b7bac135af77decd62219e"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9835ef0cc516abcbd224535211db04aac9062eae",
+      "path": "botto-connectors/botto-connector-whack/src/main/java/botto/xmpp/connectors/whack",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/9835ef0cc516abcbd224535211db04aac9062eae"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "2cc53dc28c09f4ac94f9821107adda7c3d6ecf28",
+      "path": "botto-connectors/botto-connector-whack/src/main/java/botto/xmpp/connectors/whack/WhackBotComponent.java",
+      "size": 3560,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/2cc53dc28c09f4ac94f9821107adda7c3d6ecf28"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "b47914d909e87115b4d093928184f966e5db4784",
+      "path": "botto-connectors/botto-connector-whack/src/main/java/botto/xmpp/connectors/whack/WhackBotConnection.java",
+      "size": 1656,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/b47914d909e87115b4d093928184f966e5db4784"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "ca1704ecc208e363c33854cd1b0fd9bf1055bc0d",
+      "path": "botto-connectors/botto-connector-whack/src/main/java/botto/xmpp/connectors/whack/WhackConnector.java",
+      "size": 4201,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/ca1704ecc208e363c33854cd1b0fd9bf1055bc0d"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "eaebc504e016ef52f19a2ef595a8d3e7f039c4a2",
+      "path": "botto-connectors/botto-connector-whack/src/main/java/botto/xmpp/connectors/whack/WhackConnectorConfiguration.java",
+      "size": 992,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/eaebc504e016ef52f19a2ef595a8d3e7f039c4a2"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f854abcb12b56fd9627034fb3c8b53efecc52a3c",
+      "path": "botto-connectors/pom.xml",
+      "size": 1148,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/f854abcb12b56fd9627034fb3c8b53efecc52a3c"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "dae88c0fe6dc8f6bdc10d789456af74ad5f996b3",
+      "path": "botto-examples",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/dae88c0fe6dc8f6bdc10d789456af74ad5f996b3"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c8f9c7739913d1eecef8ddc3ec92c177b0b51ab2",
+      "path": "botto-examples/botto-examples-bots",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/c8f9c7739913d1eecef8ddc3ec92c177b0b51ab2"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "5d2aa774fc463eba8b091babfc00d082cf528bfd",
+      "path": "botto-examples/botto-examples-bots/pom.xml",
+      "size": 747,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/5d2aa774fc463eba8b091babfc00d082cf528bfd"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8701c9421d16e1b26fcdc451cdee19afec2d6950",
+      "path": "botto-examples/botto-examples-bots/src",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/8701c9421d16e1b26fcdc451cdee19afec2d6950"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d631aad63a3008fee66c7f8c001562ecd5e548f6",
+      "path": "botto-examples/botto-examples-bots/src/main",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/d631aad63a3008fee66c7f8c001562ecd5e548f6"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "37a6b4adb036db99c9b8a29221f0a9df190e2acf",
+      "path": "botto-examples/botto-examples-bots/src/main/java",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/37a6b4adb036db99c9b8a29221f0a9df190e2acf"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "616787f0fb9cfc50aac6a7ef98f837bd8e09d3f3",
+      "path": "botto-examples/botto-examples-bots/src/main/java/botto",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/616787f0fb9cfc50aac6a7ef98f837bd8e09d3f3"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2ad8235d414a7302c6bdab9b49191759bc8506b0",
+      "path": "botto-examples/botto-examples-bots/src/main/java/botto/xmpp",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/2ad8235d414a7302c6bdab9b49191759bc8506b0"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "935aac326e9332ec670d1ecabe7465e4541870da",
+      "path": "botto-examples/botto-examples-bots/src/main/java/botto/xmpp/examples",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/935aac326e9332ec670d1ecabe7465e4541870da"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5c9634ef58dfe1fffdcfa8450eebf5c8477560e4",
+      "path": "botto-examples/botto-examples-bots/src/main/java/botto/xmpp/examples/bots",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/5c9634ef58dfe1fffdcfa8450eebf5c8477560e4"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "66e02c44583e4763198797ac6fd45f693ec8fc94",
+      "path": "botto-examples/botto-examples-bots/src/main/java/botto/xmpp/examples/bots/EchoBot.java",
+      "size": 658,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/66e02c44583e4763198797ac6fd45f693ec8fc94"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "49f0b751098636b9faabd09a53ffe4c1a650d965",
+      "path": "botto-examples/botto-examples-bots/src/main/java/botto/xmpp/examples/bots/SpamBot.java",
+      "size": 564,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/49f0b751098636b9faabd09a53ffe4c1a650d965"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d5f118cc5e630240caf4934e4c5fe462998330b8",
+      "path": "botto-examples/botto-examples-dropwizard",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/d5f118cc5e630240caf4934e4c5fe462998330b8"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3272005594dccdf76e2e0510ed23d4992a3f82e7",
+      "path": "botto-examples/botto-examples-dropwizard/botto-dropwizard-service.yml",
+      "size": 292,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/3272005594dccdf76e2e0510ed23d4992a3f82e7"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "3d29ca0af5a0ff92aded4f0aecef6ce407382222",
+      "path": "botto-examples/botto-examples-dropwizard/pom.xml",
+      "size": 1956,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/3d29ca0af5a0ff92aded4f0aecef6ce407382222"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "3f7d326ec04645edcc1f678ef7548fa4dcd3d990",
+      "path": "botto-examples/botto-examples-dropwizard/readme.md",
+      "size": 3209,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/3f7d326ec04645edcc1f678ef7548fa4dcd3d990"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "4dcaee07373ca785b184a2820a2d473646978cb1",
+      "path": "botto-examples/botto-examples-dropwizard/src",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/4dcaee07373ca785b184a2820a2d473646978cb1"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2f67a4d8a66845271528d4193fcce6f9b86cd935",
+      "path": "botto-examples/botto-examples-dropwizard/src/main",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/2f67a4d8a66845271528d4193fcce6f9b86cd935"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "40c8fa269f8e1e03f577f6f4d04e191699b77b6b",
+      "path": "botto-examples/botto-examples-dropwizard/src/main/java",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/40c8fa269f8e1e03f577f6f4d04e191699b77b6b"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "c32d19e325bbf23d3a041d6eefe54149226ae7c3",
+      "path": "botto-examples/botto-examples-dropwizard/src/main/java/BottoDropwizardService.java",
+      "size": 2126,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/c32d19e325bbf23d3a041d6eefe54149226ae7c3"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ec887ff2c0511c51652732c8e1c3ccd190c7508e",
+      "path": "botto-examples/botto-examples-dropwizard/src/main/java/BottoDropwizardServiceConfiguration.java",
+      "size": 583,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/ec887ff2c0511c51652732c8e1c3ccd190c7508e"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "868bfa317a1cc37aa24b12396dc2fe36e0c64ec2",
+      "path": "botto-examples/botto-examples-dropwizard/src/main/java/CountUpBot.java",
+      "size": 864,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/868bfa317a1cc37aa24b12396dc2fe36e0c64ec2"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "b714b187b3b80849afefb0d0c2d59ed2cb8bdd33",
+      "path": "botto-examples/botto-examples-dropwizard/src/main/java/SayHelloBot.java",
+      "size": 804,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/b714b187b3b80849afefb0d0c2d59ed2cb8bdd33"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "554dee246a825a36a132e18d24aeda5f4cc92c6e",
+      "path": "botto-examples/botto-examples-dropwizard/src/main/java/SayHelloResource.java",
+      "size": 625,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/554dee246a825a36a132e18d24aeda5f4cc92c6e"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "35541da5367b3ed42ca45fa8af0a6d49b7dac4b2",
+      "path": "botto-examples/botto-examples-embedded-mock",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/35541da5367b3ed42ca45fa8af0a6d49b7dac4b2"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6badcbb93bdf0aa8ec6db49f4a972b854751b089",
+      "path": "botto-examples/botto-examples-embedded-mock/pom.xml",
+      "size": 1138,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/6badcbb93bdf0aa8ec6db49f4a972b854751b089"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "79ceee514919195106d07ee67e79f95bbb425b69",
+      "path": "botto-examples/botto-examples-embedded-mock/src",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/79ceee514919195106d07ee67e79f95bbb425b69"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "41c8fa3eb3f9ba89050527169fa2ce82b7aa598c",
+      "path": "botto-examples/botto-examples-embedded-mock/src/main",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/41c8fa3eb3f9ba89050527169fa2ce82b7aa598c"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "dd5431c029611e1b05f53b6f4b2b646ac3e61a97",
+      "path": "botto-examples/botto-examples-embedded-mock/src/main/java",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/dd5431c029611e1b05f53b6f4b2b646ac3e61a97"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "0bee9066e48487e45f275e49169ce087f9e93a68",
+      "path": "botto-examples/botto-examples-embedded-mock/src/main/java/botto",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/0bee9066e48487e45f275e49169ce087f9e93a68"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9af8d67f42de71cade337cb2fb4ee354acc79368",
+      "path": "botto-examples/botto-examples-embedded-mock/src/main/java/botto/xmpp",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/9af8d67f42de71cade337cb2fb4ee354acc79368"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "d2189c19c81fb9778e2a5458d159f2afcb556143",
+      "path": "botto-examples/botto-examples-embedded-mock/src/main/java/botto/xmpp/examples",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/d2189c19c81fb9778e2a5458d159f2afcb556143"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "2955a6087abee7c189ea1c0d48c39f0df8d70fa5",
+      "path": "botto-examples/botto-examples-embedded-mock/src/main/java/botto/xmpp/examples/mock",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/2955a6087abee7c189ea1c0d48c39f0df8d70fa5"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "ff5ebd0e95f6501e9db346ae9749603ab704f85f",
+      "path": "botto-examples/botto-examples-embedded-mock/src/main/java/botto/xmpp/examples/mock/MockEngineMain.java",
+      "size": 2416,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/ff5ebd0e95f6501e9db346ae9749603ab704f85f"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "dfc42ec673f1d85baa02cb05306ae8bbf8e2f8d9",
+      "path": "botto-examples/botto-examples-embedded-mock/src/main/java/botto/xmpp/examples/mock/PerformanceTestingEngine.java",
+      "size": 2438,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/dfc42ec673f1d85baa02cb05306ae8bbf8e2f8d9"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "c4aaf4cd8e8abed90c2b46f66e67f8c45e9bc3dc",
+      "path": "botto-examples/botto-examples-embedded-mock/src/main/java/botto/xmpp/examples/mock/SimplePingPongEngine.java",
+      "size": 2132,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/c4aaf4cd8e8abed90c2b46f66e67f8c45e9bc3dc"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "76c494d7f83846df6d90c0c3f13cd182c51e798d",
+      "path": "botto-examples/botto-examples-embedded",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/76c494d7f83846df6d90c0c3f13cd182c51e798d"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "14528ddc8cb1b2a5a6f9be895547db6fed95f539",
+      "path": "botto-examples/botto-examples-embedded/pom.xml",
+      "size": 1520,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/14528ddc8cb1b2a5a6f9be895547db6fed95f539"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "00e415bd8db75f94921abdd34fc2008f9ccc220b",
+      "path": "botto-examples/botto-examples-embedded/src",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/00e415bd8db75f94921abdd34fc2008f9ccc220b"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b81becc8392de176165bb2eb85dca41fe159c87a",
+      "path": "botto-examples/botto-examples-embedded/src/main",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/b81becc8392de176165bb2eb85dca41fe159c87a"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b83ba3ffae9197a49dac2d34ee8f5d5e459eaa4a",
+      "path": "botto-examples/botto-examples-embedded/src/main/java",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/b83ba3ffae9197a49dac2d34ee8f5d5e459eaa4a"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "709a15b1d30a0c859be4960252e880cc23dad3a4",
+      "path": "botto-examples/botto-examples-embedded/src/main/java/botto",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/709a15b1d30a0c859be4960252e880cc23dad3a4"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "56d3be8341962b179fa258708b3acf94017d8525",
+      "path": "botto-examples/botto-examples-embedded/src/main/java/botto/xmpp",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/56d3be8341962b179fa258708b3acf94017d8525"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "42a6495e0a46321dd39e9d1b4f82efa2083ef4bb",
+      "path": "botto-examples/botto-examples-embedded/src/main/java/botto/xmpp/examples",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/42a6495e0a46321dd39e9d1b4f82efa2083ef4bb"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "7226b9612ce6b944e78de043e4d51956f74752d0",
+      "path": "botto-examples/botto-examples-embedded/src/main/java/botto/xmpp/examples/embedded",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/7226b9612ce6b944e78de043e4d51956f74752d0"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "1b84408366ce3fd0eedfea1c7a90468e84314b4c",
+      "path": "botto-examples/botto-examples-embedded/src/main/java/botto/xmpp/examples/embedded/server",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/1b84408366ce3fd0eedfea1c7a90468e84314b4c"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d599f6d155c22fec784d565a79654ba138f2cfa1",
+      "path": "botto-examples/botto-examples-embedded/src/main/java/botto/xmpp/examples/embedded/server/ExampleEmbeddedBotServer.java",
+      "size": 2714,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/d599f6d155c22fec784d565a79654ba138f2cfa1"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "d69688b0659942122fc9aaeb486bca8260e75f0f",
+      "path": "botto-examples/pom.xml",
+      "size": 1207,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/d69688b0659942122fc9aaeb486bca8260e75f0f"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "bb8549677e6c803ba57c1e87a247dd3b82d7188f",
+      "path": "botto-service",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/bb8549677e6c803ba57c1e87a247dd3b82d7188f"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "b2ea79726894578a11707f5516086ae7521a5450",
+      "path": "botto-service/design.md",
+      "size": 1015,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/b2ea79726894578a11707f5516086ae7521a5450"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "2345dcc254a8684703fd16eb090b2fd9e05494eb",
+      "path": "botto-service/notes.md",
+      "size": 1537,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/2345dcc254a8684703fd16eb090b2fd9e05494eb"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "de2ca6adcbe2853891f7896c37ff2200e5975424",
+      "path": "botto-service/pom.xml",
+      "size": 4175,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/de2ca6adcbe2853891f7896c37ff2200e5975424"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "adc4a245c63b06536cf76b91fbd4bf454941f5d5",
+      "path": "botto-service/src",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/adc4a245c63b06536cf76b91fbd4bf454941f5d5"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "926569af29e1a9837f0ff34419acde055316c874",
+      "path": "botto-service/src/main",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/926569af29e1a9837f0ff34419acde055316c874"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "8583ea17eae0201f98384ad433c641db47744d20",
+      "path": "botto-service/src/main/java",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/8583ea17eae0201f98384ad433c641db47744d20"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "115d2886cd0af903df7140d1b29f94f62b897f44",
+      "path": "botto-service/src/main/java/botto",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/115d2886cd0af903df7140d1b29f94f62b897f44"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "36e33cb1d5e363d3b7c92e40ddb1a8af363179c5",
+      "path": "botto-service/src/main/java/botto/xmpp",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/36e33cb1d5e363d3b7c92e40ddb1a8af363179c5"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "fd33e54a2a58d608c1283959effb3c64479b47b5",
+      "path": "botto-service/src/main/java/botto/xmpp/AbstractBot.java",
+      "size": 758,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/fd33e54a2a58d608c1283959effb3c64479b47b5"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "c8f49464ee29f53604f4b270af7f27b3e3c3de39",
+      "path": "botto-service/src/main/java/botto/xmpp/Bot.java",
+      "size": 121,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/c8f49464ee29f53604f4b270af7f27b3e3c3de39"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "934b4204ef42135beedb97cff3e46c6d50448fc4",
+      "path": "botto-service/src/main/java/botto/xmpp/BotManager.java",
+      "size": 10741,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/934b4204ef42135beedb97cff3e46c6d50448fc4"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8af05763cc22af2a455e2409fd857a50e8285568",
+      "path": "botto-service/src/main/java/botto/xmpp/BottoException.java",
+      "size": 422,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/8af05763cc22af2a455e2409fd857a50e8285568"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0712c999e2a918a71674366595313716f731f6be",
+      "path": "botto-service/src/main/java/botto/xmpp/BottoRuntimeException.java",
+      "size": 464,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/0712c999e2a918a71674366595313716f731f6be"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "564a0af7a9a74ace87efa947a2a100509c223e75",
+      "path": "botto-service/src/main/java/botto/xmpp/ChannelRegistry.java",
+      "size": 2364,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/564a0af7a9a74ace87efa947a2a100509c223e75"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "6c744a93d640c90facf70329d363d22de1d0fecb",
+      "path": "botto-service/src/main/java/botto/xmpp/ConnectorRegistry.java",
+      "size": 1450,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/6c744a93d640c90facf70329d363d22de1d0fecb"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d82aaec08288191ac2a719c1e677f6e5eb3b31f2",
+      "path": "botto-service/src/main/java/botto/xmpp/Meters.java",
+      "size": 7705,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/d82aaec08288191ac2a719c1e677f6e5eb3b31f2"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "6cab77b29009ee6fcf26b53edde8e0bcd486699e",
+      "path": "botto-service/src/main/java/botto/xmpp/engine",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/6cab77b29009ee6fcf26b53edde8e0bcd486699e"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "21f32980230631f59e169a77cf725649b3909294",
+      "path": "botto-service/src/main/java/botto/xmpp/engine/ExampleEngineMain.java",
+      "size": 3749,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/21f32980230631f59e169a77cf725649b3909294"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "cca58947848fa7bdc43652d20ee248ce15e81273",
+      "path": "botto-service/src/main/java/botto/xmpp/service",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/cca58947848fa7bdc43652d20ee248ce15e81273"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "22897cf1783160430be30aacb5f0f31d1fe0cecc",
+      "path": "botto-service/src/main/java/botto/xmpp/service/component",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/22897cf1783160430be30aacb5f0f31d1fe0cecc"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "a2c4dc977d16617aa886d552c707e2667e60990d",
+      "path": "botto-service/src/main/java/botto/xmpp/service/component/NodeFilter.java",
+      "size": 111,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/a2c4dc977d16617aa886d552c707e2667e60990d"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "166971943d98650839917400a0af4cb9375f5b40",
+      "path": "botto-service/src/main/java/botto/xmpp/service/component/NodeFilters.java",
+      "size": 565,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/166971943d98650839917400a0af4cb9375f5b40"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "5df93166d9d705352237de5151b551cd1a807505",
+      "path": "botto-service/src/main/java/botto/xmpp/service/dispatcher",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/5df93166d9d705352237de5151b551cd1a807505"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "503773e1ae469d7e463fa5d2dfc53658688ad589",
+      "path": "botto-service/src/main/java/botto/xmpp/service/dispatcher/ListenableConfirmation.java",
+      "size": 621,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/503773e1ae469d7e463fa5d2dfc53658688ad589"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9551a92f297d81dab0f98bd4df80aefa72e912c7",
+      "path": "botto-service/src/main/java/botto/xmpp/service/reflection",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/9551a92f297d81dab0f98bd4df80aefa72e912c7"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "7b49031c71832e834df0ea8ea8e0d7064f686063",
+      "path": "botto-service/src/main/java/botto/xmpp/service/reflection/AnnotatedBotObject.java",
+      "size": 5166,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/7b49031c71832e834df0ea8ea8e0d7064f686063"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "ff3019aa684890720364101c11906221ce27dca3",
+      "path": "botto-service/src/main/java/botto/xmpp/service/reflection/ReceiverMethod.java",
+      "size": 3310,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/ff3019aa684890720364101c11906221ce27dca3"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "4cc420938bbee138b4b8b55b995ebb8408e1f336",
+      "path": "botto-service/src/main/java/botto/xmpp/service/reflection/ReflectionUtils.java",
+      "size": 766,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/4cc420938bbee138b4b8b55b995ebb8408e1f336"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "436efc6ee95541ca3985e4f64c70e082e2b41d54",
+      "path": "botto-service/src/main/java/botto/xmpp/utils",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/436efc6ee95541ca3985e4f64c70e082e2b41d54"
+    },
+    {
+      "mode": "100644",
+      "type": "blob",
+      "sha": "4ca60a63e7d9bedb688dcd685eaf7cb9c14d447f",
+      "path": "botto-service/src/main/java/botto/xmpp/utils/Packets.java",
+      "size": 2839,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/4ca60a63e7d9bedb688dcd685eaf7cb9c14d447f"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b2aa125b488f5fe74f5e3708eca5ed2503131bec",
+      "path": "botto-service/src/test",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/b2aa125b488f5fe74f5e3708eca5ed2503131bec"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "92038b6c5951c4847df03ddf838315ca4afb714f",
+      "path": "botto-service/src/test/java",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/92038b6c5951c4847df03ddf838315ca4afb714f"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c688295bac8a4883f3773ac5aa7a3573dab125ec",
+      "path": "botto-service/src/test/java/botto",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/c688295bac8a4883f3773ac5aa7a3573dab125ec"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "e1eaa6233fb2ea938052d2d522fb560e168590b7",
+      "path": "botto-service/src/test/java/botto/xmpp",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/e1eaa6233fb2ea938052d2d522fb560e168590b7"
+    },
+    {
+      "mode": "040000",
+      "type": "tree",
+      "sha": "dcd10a328783b59f8e55d4a0f1f9c61abaa2e621",
+      "path": "botto-service/src/test/java/botto/xmpp/utils",
+      "url": "https://api.github.com/repos/mcaprari/botto/git/trees/dcd10a328783b59f8e55d4a0f1f9c61abaa2e621"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "aaa22e653c0a61ce4dc3607b2fb42afca1f77f5d",
+      "path": "botto-service/src/test/java/botto/xmpp/utils/PacketTypeConverterTest.java",
+      "size": 1326,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/aaa22e653c0a61ce4dc3607b2fb42afca1f77f5d"
+    },
+    {
+      "mode": "100755",
+      "type": "blob",
+      "sha": "8544c93c1a2a48fc5ff44d44bce05380f088fa63",
+      "path": "pom.xml",
+      "size": 3229,
+      "url": "https://api.github.com/repos/mcaprari/botto/git/blobs/8544c93c1a2a48fc5ff44d44bce05380f088fa63"
+    }
+  ]
+}

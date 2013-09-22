@@ -36,7 +36,6 @@ public class TodoMain {
 
         try {
             cloneService.clone(cloneUrl, branch, workerDir, workerLog);
-
         } catch (Exception e) {
 
         }

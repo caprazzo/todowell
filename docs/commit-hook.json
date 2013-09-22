@@ -1,0 +1,141 @@
+{
+    "after": "e2edeb5ca9fd4dfdc1bb4e784e68a295840279e5",
+    "before": "e87850b6ccdab49be464d808f80723d0b77b5823",
+    "commits": [
+        {
+            "added": [],
+            "author": {
+                "email": "matteo.caprari@gmail.com",
+                "name": "Matteo Caprari",
+                "username": "mcaprari"
+            },
+            "committer": {
+                "email": "matteo.caprari@gmail.com",
+                "name": "Matteo Caprari",
+                "username": "mcaprari"
+            },
+            "distinct": true,
+            "id": "6e809ef2a50b34adb1de24e31f21cb1300c55226",
+            "message": "Update README.md",
+            "modified": [
+                "README.md"
+            ],
+            "removed": [],
+            "timestamp": "2013-09-10T00:42:08-07:00",
+            "url": "https://github.com/mcaprari/todowell/commit/6e809ef2a50b34adb1de24e31f21cb1300c55226"
+        },
+        {
+            "added": [
+                "docs/content_file_java_base64.json",
+                "docs/refs.json",
+                "docs/tree_snapshot.json",
+                "docs/tree_snapshot_recursive.json"
+            ],
+            "author": {
+                "email": "matteo.caprari@gmail.com",
+                "name": "Matteo Caprari",
+                "username": "mcaprari"
+            },
+            "committer": {
+                "email": "matteo.caprari@gmail.com",
+                "name": "Matteo Caprari",
+                "username": "mcaprari"
+            },
+            "distinct": true,
+            "id": "6d35d36828726539777af483ba06cec3cc8ba32a",
+            "message": "added some docs on API usage",
+            "modified": [
+                "README.md"
+            ],
+            "removed": [],
+            "timestamp": "2013-09-10T01:23:30-07:00",
+            "url": "https://github.com/mcaprari/todowell/commit/6d35d36828726539777af483ba06cec3cc8ba32a"
+        },
+        {
+            "added": [
+                "pom.xml",
+                "src/main/java/net/caprazzi/todowell/CloneService.java",
+                "src/main/java/net/caprazzi/todowell/Repository.java",
+                "src/main/java/net/caprazzi/todowell/TodoMain.java"
+            ],
+            "author": {
+                "email": "matteo.caprari@gmail.com",
+                "name": "Matteo Caprari",
+                "username": "mcaprari"
+            },
+            "committer": {
+                "email": "matteo.caprari@gmail.com",
+                "name": "Matteo Caprari",
+                "username": "mcaprari"
+            },
+            "distinct": true,
+            "id": "e2edeb5ca9fd4dfdc1bb4e784e68a295840279e5",
+            "message": "Initial work on github repo cloning",
+            "modified": [
+                ".gitignore"
+            ],
+            "removed": [],
+            "timestamp": "2013-09-22T01:26:22-07:00",
+            "url": "https://github.com/mcaprari/todowell/commit/e2edeb5ca9fd4dfdc1bb4e784e68a295840279e5"
+        }
+    ],
+    "compare": "https://github.com/mcaprari/todowell/compare/e87850b6ccda...e2edeb5ca9fd",
+    "created": false,
+    "deleted": false,
+    "forced": false,
+    "head_commit": {
+        "added": [
+            "pom.xml",
+            "src/main/java/net/caprazzi/todowell/CloneService.java",
+            "src/main/java/net/caprazzi/todowell/Repository.java",
+            "src/main/java/net/caprazzi/todowell/TodoMain.java"
+        ],
+        "author": {
+            "email": "matteo.caprari@gmail.com",
+            "name": "Matteo Caprari",
+            "username": "mcaprari"
+        },
+        "committer": {
+            "email": "matteo.caprari@gmail.com",
+            "name": "Matteo Caprari",
+            "username": "mcaprari"
+        },
+        "distinct": true,
+        "id": "e2edeb5ca9fd4dfdc1bb4e784e68a295840279e5",
+        "message": "Initial work on github repo cloning",
+        "modified": [
+            ".gitignore"
+        ],
+        "removed": [],
+        "timestamp": "2013-09-22T01:26:22-07:00",
+        "url": "https://github.com/mcaprari/todowell/commit/e2edeb5ca9fd4dfdc1bb4e784e68a295840279e5"
+    },
+    "pusher": {
+        "name": "none"
+    },
+    "ref": "refs/heads/master",
+    "repository": {
+        "created_at": 1378797996,
+        "description": "Source code todo",
+        "fork": false,
+        "forks": 0,
+        "has_downloads": true,
+        "has_issues": true,
+        "has_wiki": true,
+        "id": 12723044,
+        "language": "Java",
+        "master_branch": "master",
+        "name": "todowell",
+        "open_issues": 0,
+        "owner": {
+            "email": "matteo.caprari@gmail.com",
+            "name": "mcaprari"
+        },
+        "private": false,
+        "pushed_at": 1379840029,
+        "size": 172,
+        "stargazers": 0,
+        "url": "https://github.com/mcaprari/todowell",
+        "watchers": 0
+    }
+}

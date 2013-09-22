@@ -6,7 +6,12 @@
 
     <groupId>todowell</groupId>
     <artifactId>todowell</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>receive-hook-queue-client</module>
+        <module>gitdone-parser</module>
+    </modules>
 
     <properties>
         <source.version>1.6</source.version>
@@ -15,11 +20,17 @@
         <logback.version>1.0.13</logback.version>
         <slf4j.version>1.7.5</slf4j.version>
         <guava.version>14.0.1</guava.version>
+        <source.version>1.6</source.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
@@ -44,6 +55,17 @@
             <groupId>java-reusables</groupId>
             <artifactId>java-reusables-common</artifactId>
             <version>${java-reusables.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

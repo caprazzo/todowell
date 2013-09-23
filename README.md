@@ -53,6 +53,11 @@ Source code todo
 * https://github.com/eclipse/jgit/blob/master/org.eclipse.jgit/src/org/eclipse/jgit/internal/storage/dfs/InMemoryRepository.java
 
 
+## Store extracted json in S3:
+
+https://s3.amazonaws.com/giddone/repos/mcaprari/botto/master/todo.json
+
+
 
 
 

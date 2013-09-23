@@ -1,17 +1,17 @@
-package net.caprazzi.gitdone.parser;
+package net.caprazzi.todowell;
 
 public class CommentLine {
-    private final FileScanner.SourceFile source;
+    private final SourceFile source;
     private final int lineNumber;
     private final String line;
 
-    public CommentLine(FileScanner.SourceFile source, int lineNumber, String line) {
+    public CommentLine(SourceFile source, int lineNumber, String line) {
         this.source = source;
         this.lineNumber = lineNumber;
         this.line = line;
     }
 
-    public FileScanner.SourceFile getSource() {
+    public SourceFile getSource() {
         return source;
     }
 

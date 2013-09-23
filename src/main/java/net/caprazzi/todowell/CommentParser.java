@@ -1,14 +1,15 @@
-package net.caprazzi.gitdone.parser;
+package net.caprazzi.todowell;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class CommentScanner {
+public class CommentParser {
 
-    public static Iterable<CommentLine> getComments(FileScanner.SourceFile source) throws IOException {
+    public final Iterable<CommentLine> parse(SourceFile source) throws IOException {
         LinkedList<CommentLine> comments = new LinkedList<CommentLine>();
 
         LineIterator it = FileUtils.lineIterator(source.getFile().toFile(), "UTF-8");
@@ -28,8 +29,17 @@ public class CommentScanner {
         return comments;
     }
 
-    public static boolean isComment(String line, FileScanner.Language language) {
+    private boolean isComment(String line, Language language) {
         return line != null && line.trim().startsWith(language.getCommentStrategy().singleCommentStart());
     }
 
+    public Iterable<CommentLine> parse(Iterable<SourceFile> sourceFiles) throws IOException {
+        ArrayList<CommentLine> commentLines = new ArrayList<CommentLine>();
+        for(SourceFile file : sourceFiles) {
+            for (CommentLine line : parse(file)) {
+                commentLines.add(line);
+            }
+        }
+        return commentLines;
+    }
 }

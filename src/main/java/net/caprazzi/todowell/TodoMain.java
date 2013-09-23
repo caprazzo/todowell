@@ -1,6 +1,9 @@
 package net.caprazzi.todowell;
 
+
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationConfig;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -8,7 +11,8 @@ import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
 import java.util.LinkedList;
 
 public class TodoMain {
@@ -27,21 +31,19 @@ public class TodoMain {
         }
 
         CloneService cloneService = new CloneService(workers);
-
-        Path workerDir = Files.createTempDirectory(workers, "worker-");
-
-        String cloneUrl =  "git@github.com:mcaprari/botto.git";
-        String branch = "master";
-
-        // TODO: load dynamically
         Languages languages = new Languages(new Language("Java", "java", CommentStrategy.DoubleSlash));
-
         SourceFileScanner sourceFileScanner = new SourceFileScanner(languages);
         CommentParser commentParser = new CommentParser();
         TodoParser todoParser = new TodoParser();
 
         SourceCodeParser parser = new SourceCodeParser(sourceFileScanner, commentParser, todoParser);
         RepositoryParser repositoryParser = new RepositoryParser(cloneService, parser, workers);
+
+        String cloneUrl =  "git@github.com:mcaprari/botto.git";
+        String branch = "master";
+
+        Repository repository = new Repository("mcaprari", "botto", "git@github.com:mcaprari/botto.git", "master");
+        // TODO: load dynamically
 
         Iterable<Todo> todos = repositoryParser.parse(cloneUrl, branch);
         LinkedList<TodoRecord> records = new LinkedList<TodoRecord>();
@@ -50,50 +52,43 @@ public class TodoMain {
             records.add(TodoRecord.from(todo));
         }
 
-        ObjectMapper mapper = new ObjectMapper();
-        System.out.println(mapper.writeValueAsString(records));
 
-        // TODO: convert to json
+        ObjectMapper mapper = new ObjectMapper();
+        // TODO: fix joda time serialization and convert all to joda
+        mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+
+        TodoSnapshot snapshot = new TodoSnapshot(new Date(), repository, records);
+
+        System.out.println(mapper.writeValueAsString(snapshot));
+
         // TODO: store the extracted todos
         // TODO: delete the clone
     }
 
-    public static class TodoRecord {
-        private String file;
-        private int line;
-        private String label;
-        private String body;
+    public static class TodoSnapshot {
+        private Date created;
+        private Repository repo;
+        private Collection<TodoRecord> todo;
 
-        public TodoRecord(String file, int line, String label, String body) {
-            this.file = file;
-            this.line = line;
-            this.label = label;
-            this.body = body;
+        public TodoSnapshot(Date created, Repository repo, Collection<TodoRecord> todo) {
+            this.created = created;
+            this.repo = repo;
+            this.todo = todo;
         }
 
-        public static TodoRecord from(Todo todo) {
-            return new TodoRecord(
-                todo.getComment().getSource().getRelativeFile().toString(),
-                todo.getComment().getLineNumber(),
-                todo.getLabel(),
-                todo.getTodo());
+        public Date getCreated() {
+            return created;
         }
 
-        public String getFile() {
-            return file;
+        public Repository getRepo() {
+            return repo;
         }
 
-        public int getLine() {
-            return line;
+        public Collection<TodoRecord> getTodo() {
+            return todo;
         }
-
-        public String getLabel() {
-            return label;
-        }
-
-        public String getBody() {
-            return body;
-        }
-
     }
+
+
+
 }

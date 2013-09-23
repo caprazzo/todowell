@@ -1,8 +1,11 @@
 package net.caprazzi.todowell;
 
 
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3Client;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationConfig;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +14,6 @@ import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Collection;
 import java.util.Date;
 import java.util.LinkedList;
 
@@ -31,6 +33,8 @@ public class TodoMain {
         }
 
         CloneService cloneService = new CloneService(workers);
+
+        // TODO: load languages dynamically
         Languages languages = new Languages(new Language("Java", "java", CommentStrategy.DoubleSlash));
         SourceFileScanner sourceFileScanner = new SourceFileScanner(languages);
         CommentParser commentParser = new CommentParser();
@@ -43,7 +47,13 @@ public class TodoMain {
         String branch = "master";
 
         Repository repository = new Repository("mcaprari", "botto", "git@github.com:mcaprari/botto.git", "master");
-        // TODO: load dynamically
+
+        String myAccessKeyID = "1P1SGYDKGB3TJP35Z602";
+        String mySecretKey =  "jJs0pddIZrqJjXnOyv479MatKr38HlmsEMb4C6LF";
+        AWSCredentials myCredentials = new BasicAWSCredentials(myAccessKeyID, mySecretKey);
+        AmazonS3 s3client = new AmazonS3Client(myCredentials);
+        SnapshotDatabase snapshotDatabase = new SnapshotDatabase(s3client);
+
 
         Iterable<Todo> todos = repositoryParser.parse(cloneUrl, branch);
         LinkedList<TodoRecord> records = new LinkedList<TodoRecord>();
@@ -59,36 +69,13 @@ public class TodoMain {
 
         TodoSnapshot snapshot = new TodoSnapshot(new Date(), repository, records);
 
+        snapshotDatabase.save(snapshot);
+
         System.out.println(mapper.writeValueAsString(snapshot));
 
         // TODO: store the extracted todos
         // TODO: delete the clone
     }
-
-    public static class TodoSnapshot {
-        private Date created;
-        private Repository repo;
-        private Collection<TodoRecord> todo;
-
-        public TodoSnapshot(Date created, Repository repo, Collection<TodoRecord> todo) {
-            this.created = created;
-            this.repo = repo;
-            this.todo = todo;
-        }
-
-        public Date getCreated() {
-            return created;
-        }
-
-        public Repository getRepo() {
-            return repo;
-        }
-
-        public Collection<TodoRecord> getTodo() {
-            return todo;
-        }
-    }
-
 
 
 }

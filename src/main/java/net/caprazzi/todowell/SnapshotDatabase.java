@@ -35,6 +35,21 @@ public class SnapshotDatabase {
         this.s3Client = s3Client;
     }
 
+    public String htmlTemplate(String snapshotJson) {
+        // TODO: get and cache template from remote location
+        return "<!DOCTYPE html>\n" +
+        "<html>\n" +
+        "<head>\n" +
+        "    <script id=\"snapshot\">function snapshot() { return "  + snapshotJson + "; }</script>\n" +
+        "    <script src=\"giddone.js\"></script>\n" +
+        "    <title>Giddone</title>\n" +
+        "</head>\n" +
+        "<body>\n" +
+        "<div ng-app ng-controller=\"MainCtrl\" ng-include src=\"mainUrl\"></div>\n" +
+        "</body>\n" +
+        "</html>";
+    }
+
     public void save(TodoSnapshot snapshot) throws IOException {
         String bucket = "giddone";
         String keyName = createKey(snapshot.getRepo());
@@ -88,7 +103,7 @@ public class SnapshotDatabase {
     }
 
     private String createKey(Repository repo) {
-        return String.format("repos/%s/%s/%s/todo.json", repo.getUser(), repo.getRepo(), repo.getBranch());
+        return String.format("%s/%s/%s/todo.json", repo.getUser(), repo.getRepo(), repo.getBranch());
     }
 
 }

@@ -69,7 +69,7 @@ public class TodoMain {
 
         TodoSnapshot snapshot = new TodoSnapshot(new Date(), repository, records);
 
-        snapshotDatabase.save(snapshot);
+        snapshotDatabase.savePage(snapshot);
 
         System.out.println(mapper.writeValueAsString(snapshot));
 

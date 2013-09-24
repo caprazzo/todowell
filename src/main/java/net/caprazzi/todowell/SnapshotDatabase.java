@@ -14,10 +14,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
@@ -41,13 +38,44 @@ public class SnapshotDatabase {
         "<html>\n" +
         "<head>\n" +
         "    <script id=\"snapshot\">function snapshot() { return "  + snapshotJson + "; }</script>\n" +
-        "    <script src=\"https://raw.github.com/mcaprari/todowell/master/giddone-web-ui/giddone.js\"></script>\n" +
+        "    <script src=\"/giddone/giddone.js\"></script>\n" +
         "    <title>Giddone</title>\n" +
         "</head>\n" +
         "<body>\n" +
         "<div ng-app ng-controller=\"MainCtrl\" ng-include src=\"mainUrl\"></div>\n" +
         "</body>\n" +
         "</html>";
+    }
+
+    public void savePage(TodoSnapshot snapshot) throws IOException {
+        String bucket = "giddone";
+        String keyName = createKey(snapshot.getRepo());
+        String json = mapper.writeValueAsString(snapshot);
+        String html = htmlTemplate(json);
+        System.out.println("storing: " + html);
+
+        ObjectMetadata meta = new ObjectMetadata();
+        meta.setContentType("text/html");
+        meta.setContentEncoding("UTF-8");
+        meta.setContentEncoding("gzip");
+
+        PutObjectRequest put = new PutObjectRequest(bucket, keyName, gzip(html), meta);
+        put.setCannedAcl(CannedAccessControlList.PublicRead);
+
+        System.out.println("put request: " + put);
+
+        s3put(put);
+    }
+
+    private InputStream gzip(String string) throws IOException {
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        GZIPOutputStream gzipOut = new GZIPOutputStream(out);
+
+        gzipOut.write(string.getBytes("UTF-8"));
+        gzipOut.flush();
+        gzipOut.close();
+
+        return new ByteArrayInputStream(out.toByteArray());
     }
 
     public void save(TodoSnapshot snapshot) throws IOException {
@@ -62,26 +90,20 @@ public class SnapshotDatabase {
         meta.setContentEncoding("UTF-8");
         meta.setContentEncoding("gzip");
 
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        GZIPOutputStream gzipOut = new GZIPOutputStream(out);
-
-        gzipOut.write(json.getBytes("UTF-8"));
-        gzipOut.flush();
-        gzipOut.close();
-
-        ByteArrayInputStream byteIn = new ByteArrayInputStream(out.toByteArray());
-
-        PutObjectRequest put = new PutObjectRequest(bucket, keyName, byteIn, meta);
+        PutObjectRequest put = new PutObjectRequest(bucket, keyName, gzip(json), meta);
         put.setCannedAcl(CannedAccessControlList.PublicRead);
 
         System.out.println("put request: " + put);
 
-        put.setMetadata(meta);
+        s3put(put);
+    }
 
+    private void s3put(PutObjectRequest request) {
         try {
-            s3Client.putObject(put);
+            s3Client.putObject(request);
         }
         catch (AmazonServiceException ase) {
+            // TODO: actually propagate exceptions
             System.out.println("Caught an AmazonServiceException, which " +
                     "means your request made it " +
                     "to Amazon S3, but was rejected with an error response" +
@@ -99,11 +121,10 @@ public class SnapshotDatabase {
                     "such as not being able to access the network.");
             System.out.println("Error Message: " + ace.getMessage());
         }
-
     }
 
     private String createKey(Repository repo) {
-        return String.format("%s/%s/%s/todo.json", repo.getUser(), repo.getRepo(), repo.getBranch());
+        return String.format("%s/%s/%s", repo.getUser(), repo.getRepo(), repo.getBranch());
     }
 
 }

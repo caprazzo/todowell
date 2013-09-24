@@ -1,13 +1,54 @@
-<div ng-app ng-controller="TodoCtrl">
-    {{ snapshot.repo.user }}/{{ snapshot.repo.repo }}/{{ snapshot.repo.branch }}
-    <ul>
-        <li ng-repeat="(file, ts) in todos">
-            {{ file }}
-            <ul>
-                <li ng-repeat="t in ts">
-                    {{ t.line }} {{ t.label }} {{ t.body }}
-                </li>
-            </ul>
-        </li>
-    </ul>
+<div class="wrapper" ng-app ng-controller="TodoCtrl">
+    <div class="header">
+        <div class="container clearfix">
+
+        </div>
+    </div>
+    <div class="site">
+        <div class="pagehead">
+            <div class="container">
+                <!-- TODO: use itemscope / itemtype for semantic fancyess -->
+                <h1>
+                    Todos for
+                    <a href="https://github.com">
+                        <i class="header-icon icon-github icon-large"></i>
+                    </a>
+                    <span class="repo-divider">/</span>
+                    <span class="author">
+                        <a href="https://github.com/{{ snapshot.repo.user }}" rel="author">{{ snapshot.repo.user }}</a>
+                    </span>
+                    <span class="repo-divider">/</span>
+                    <strong>
+                        <span class="repository">
+                            <!-- TODO: dynamically build repo url based on branch -->
+                            <a href="https://github.com/{{ snapshot.repo.user }}/{{ snapshot.repo.repo }}/tree/{{ snapshot.repo.branch }}" rel="repo">{{ snapshot.repo.repo }}</a>
+                        </span>
+                    </strong>
+                </h1>
+                <h2><span class="branch-label">repository:</span> <span class="branch-name">{{ snapshot.repo.branch }}</span></h2>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="todo-list">
+                <table>
+                    <tbody ng-repeat="(file, lines) in todos">
+                        <tr class="section-file">
+                            <td colspan="2"><a href="https://github.com/{{ snapshot.repo.user }}/{{ snapshot.repo.repo }}/blob/{{ snapshot.repo.branch }}/{{  file }}">{{ file }}</a></td>
+                        </tr>
+                        <tr class="section-lines">
+                            <td>
+                                <span class="line-number" ng-repeat="line in lines"><a href="https://github.com/{{ snapshot.repo.user }}/{{ snapshot.repo.repo }}/blob/{{ snapshot.repo.branch }}/{{  file }}#L{{ line.line }}">{{ line.line }}</a></span>
+                            </td>
+                            <td>
+                                <span class="line-body" ng-repeat="line in lines">{{ line.body }}</span>
+                            </td>
+                        </tr>
+                        <tr class="section-bottom"><td colspan="2">&nbsp;</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
 </div>

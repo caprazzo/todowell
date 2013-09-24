@@ -41,7 +41,7 @@ public class SnapshotDatabase {
         "<html>\n" +
         "<head>\n" +
         "    <script id=\"snapshot\">function snapshot() { return "  + snapshotJson + "; }</script>\n" +
-        "    <script src=\"giddone.js\"></script>\n" +
+        "    <script src=\"https://raw.github.com/mcaprari/todowell/master/giddone-web-ui/giddone.js\"></script>\n" +
         "    <title>Giddone</title>\n" +
         "</head>\n" +
         "<body>\n" +

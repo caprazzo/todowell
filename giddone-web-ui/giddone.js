@@ -1,5 +1,5 @@
 function MainCtrl($scope) {
-    $scope.mainUrl = 'main.html';
+    $scope.mainUrl = 'https://raw.github.com/mcaprari/todowell/master/giddone-web-ui/main.html';
 }
 function TodoCtrl($scope) {
     $scope.snapshot = snapshot();

@@ -6,3 +6,4 @@
 *.ear
 
 /workers/
+/.DS_Store

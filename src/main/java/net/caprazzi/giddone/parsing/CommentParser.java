@@ -9,7 +9,8 @@ import java.util.LinkedList;
 
 public class CommentParser {
 
-    public final Iterable<CommentLine> parse(SourceFile source) throws IOException {
+
+    private final Iterable<CommentLine> parse(SourceFile source) throws IOException {
         LinkedList<CommentLine> comments = new LinkedList<CommentLine>();
 
         LineIterator it = FileUtils.lineIterator(source.getFile().toFile(), "UTF-8");
@@ -36,6 +37,7 @@ public class CommentParser {
     public Iterable<CommentLine> parse(Iterable<SourceFile> sourceFiles) throws IOException {
         ArrayList<CommentLine> commentLines = new ArrayList<CommentLine>();
         for(SourceFile file : sourceFiles) {
+            // TODO: meter file parsing time
             for (CommentLine line : parse(file)) {
                 commentLines.add(line);
             }

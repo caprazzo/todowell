@@ -26,6 +26,7 @@ public class CloneService {
         Log.info("STARTED Cloning {}/{} to {}", cloneUrl, branch, workerDir);
 
         try {
+            // TODO: meter cloning execution
             ProcessBuilder builder = new ProcessBuilder()
                     .command("git", "clone", cloneUrl, "-b", branch, "repo")
                     .directory(workerDir.toAbsolutePath().toFile())

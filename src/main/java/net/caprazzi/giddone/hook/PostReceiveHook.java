@@ -1,4 +1,4 @@
-package net.caprazzi.todowell;
+package net.caprazzi.giddone.hook;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -8,6 +8,9 @@ public class PostReceiveHook {
 
     @JsonProperty
     private String ref;
+
+    @JsonProperty
+    private Repository repository;
 
     public String getRef() {
         return ref;
@@ -19,4 +22,18 @@ public class PostReceiveHook {
             .append("ref", ref)
             .toString();
     }
+
+    public Repository getRepository() {
+        return repository;
+    }
+
+    public String getBranch() {
+        return parseBranch(ref);
+    }
+
+    private String parseBranch(String ref) {
+        String[] parts = ref.split("/");
+        return parts[parts.length - 1];
+    }
+
 }

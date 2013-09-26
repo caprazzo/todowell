@@ -3,10 +3,10 @@ package net.caprazzi.gitdone.parser.parser;
 
 
 
-import net.caprazzi.todowell.CommentLine;
-import net.caprazzi.todowell.CommentStrategy;
-import net.caprazzi.todowell.Language;
-import net.caprazzi.todowell.SourceFile;
+import net.caprazzi.giddone.parsing.CommentLine;
+import net.caprazzi.giddone.parsing.CommentStrategy;
+import net.caprazzi.giddone.parsing.Language;
+import net.caprazzi.giddone.parsing.SourceFile;
 import org.junit.Assert;
 import org.junit.Test;
 

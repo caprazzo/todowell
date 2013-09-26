@@ -1,4 +1,4 @@
-package net.caprazzi.todowell;
+package net.caprazzi.giddone.deploy;
 
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
@@ -8,11 +8,17 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import net.caprazzi.giddone.parsing.Repository;
+import net.caprazzi.giddone.parsing.TodoSnapshot;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.zip.GZIPOutputStream;
 
-public class SnapshotDatabase {
+public class DeployService {
+
+    private static final Logger Log = LoggerFactory.getLogger(DeployService.class);
 
     private final AmazonS3 s3Client;
 
@@ -22,7 +28,7 @@ public class SnapshotDatabase {
         mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
     }
 
-    public SnapshotDatabase(AmazonS3 s3Client) {
+    public DeployService(AmazonS3 s3Client) {
         this.s3Client = s3Client;
     }
 
@@ -41,12 +47,12 @@ public class SnapshotDatabase {
         "</html>";
     }
 
-    public void savePage(TodoSnapshot snapshot) throws IOException {
+    public void deployPage(TodoSnapshot snapshot) throws IOException {
         String bucket = "giddone";
         String keyName = createKey(snapshot.getRepo());
         String json = mapper.writeValueAsString(snapshot);
         String html = htmlTemplate(json);
-        System.out.println("storing: " + html);
+        Log.debug("Storing html: " + html);
 
         ObjectMetadata meta = new ObjectMetadata();
         meta.setContentType("text/html");
@@ -56,7 +62,7 @@ public class SnapshotDatabase {
         PutObjectRequest put = new PutObjectRequest(bucket, keyName, gzip(html), meta);
         put.setCannedAcl(CannedAccessControlList.PublicRead);
 
-        System.out.println("put request: " + put);
+        Log.info("Saving to {}/{}", bucket, keyName);
 
         s3put(put);
     }
@@ -70,26 +76,6 @@ public class SnapshotDatabase {
         gzipOut.close();
 
         return new ByteArrayInputStream(out.toByteArray());
-    }
-
-    public void save(TodoSnapshot snapshot) throws IOException {
-        String bucket = "giddone";
-        String keyName = createKey(snapshot.getRepo());
-        String json = mapper.writeValueAsString(snapshot);
-
-        System.out.println("storing: " + json);
-
-        ObjectMetadata meta = new ObjectMetadata();
-        meta.setContentType("application/json");
-        meta.setContentEncoding("UTF-8");
-        meta.setContentEncoding("gzip");
-
-        PutObjectRequest put = new PutObjectRequest(bucket, keyName, gzip(json), meta);
-        put.setCannedAcl(CannedAccessControlList.PublicRead);
-
-        System.out.println("put request: " + put);
-
-        s3put(put);
     }
 
     private void s3put(PutObjectRequest request) {

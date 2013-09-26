@@ -1,7 +1,8 @@
 package net.caprazzi.gitdone.parser.parser;
 
 import com.google.common.base.Optional;
-import net.caprazzi.todowell.*;
+import net.caprazzi.giddone.*;
+import net.caprazzi.giddone.parsing.*;
 import org.junit.Assert;
 import org.junit.experimental.theories.*;
 import org.junit.runner.RunWith;

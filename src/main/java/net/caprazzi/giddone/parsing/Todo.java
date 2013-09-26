@@ -1,4 +1,6 @@
-package net.caprazzi.todowell;
+package net.caprazzi.giddone.parsing;
+
+import net.caprazzi.giddone.parsing.CommentLine;
 
 public class Todo {
     private final CommentLine comment;

@@ -1,4 +1,4 @@
-package net.caprazzi.todowell;
+package net.caprazzi.giddone.parsing;
 
 public class CommentLine {
     private final SourceFile source;

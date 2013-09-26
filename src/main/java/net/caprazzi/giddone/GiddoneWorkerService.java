@@ -1,28 +1,38 @@
-package net.caprazzi.todowell;
-
+package net.caprazzi.giddone;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
+import net.caprazzi.giddone.cloning.CloneService;
+import net.caprazzi.giddone.deploy.DeployService;
+import net.caprazzi.giddone.hook.HookQueueClient;
+import net.caprazzi.giddone.parsing.*;
+import net.caprazzi.giddone.worker.HookQueueExecutor;
+import net.caprazzi.giddone.worker.RepositoryParser;
+import net.caprazzi.giddone.worker.SourceCodeParser;
+import net.caprazzi.giddone.worker.SourceFileScanner;
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.DefaultHttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Date;
-import java.util.LinkedList;
 
-public class TodoMain {
+public class GiddoneWorkerService {
 
-    private static final Logger Log = LoggerFactory.getLogger(TodoMain.class);
+    private static final Logger Log = LoggerFactory.getLogger(GiddoneWorkerService.class);
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IOException {
+        HttpClient httpClient = new DefaultHttpClient();
+        // TODO: read from config
+        HookQueueClient queueClient = new HookQueueClient(httpClient, "http://gitdone-receive-hook.herokuapp.com");
 
+        // TODO: read from config
         Path workers = FileSystems.getDefault().getPath("./workers");
         try {
             Files.createDirectory(workers);
@@ -34,7 +44,7 @@ public class TodoMain {
 
         CloneService cloneService = new CloneService(workers);
 
-        // TODO: load languages dynamically
+        // TODO: load languages from config
         Languages languages = new Languages(new Language("Java", "java", CommentStrategy.DoubleSlash));
         SourceFileScanner sourceFileScanner = new SourceFileScanner(languages);
         CommentParser commentParser = new CommentParser();
@@ -43,39 +53,14 @@ public class TodoMain {
         SourceCodeParser parser = new SourceCodeParser(sourceFileScanner, commentParser, todoParser);
         RepositoryParser repositoryParser = new RepositoryParser(cloneService, parser, workers);
 
-        String cloneUrl =  "git@github.com:mcaprari/botto.git";
-        String branch = "master";
-
-        Repository repository = new Repository("mcaprari", "botto", "git@github.com:mcaprari/botto.git", "master");
-
+        // TODO: from config
         String myAccessKeyID = "1P1SGYDKGB3TJP35Z602";
         String mySecretKey =  "jJs0pddIZrqJjXnOyv479MatKr38HlmsEMb4C6LF";
         AWSCredentials myCredentials = new BasicAWSCredentials(myAccessKeyID, mySecretKey);
         AmazonS3 s3client = new AmazonS3Client(myCredentials);
-        SnapshotDatabase snapshotDatabase = new SnapshotDatabase(s3client);
+        DeployService database = new DeployService(s3client);
 
-
-        Iterable<Todo> todos = repositoryParser.parse(cloneUrl, branch);
-        LinkedList<TodoRecord> records = new LinkedList<TodoRecord>();
-        for(Todo todo : todos) {
-            System.out.println("\t" + todo.getComment().getSource().getFile().getFileName() + ":\t" + todo.getLabel() + ": " + todo.getTodo());
-            records.add(TodoRecord.from(todo));
-        }
-
-
-        ObjectMapper mapper = new ObjectMapper();
-        // TODO: fix joda time serialization and convert all to joda
-        mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-
-        TodoSnapshot snapshot = new TodoSnapshot(new Date(), repository, records);
-
-        snapshotDatabase.savePage(snapshot);
-
-        System.out.println(mapper.writeValueAsString(snapshot));
-
-        // TODO: store the extracted todos
-        // TODO: delete the clone
+        HookQueueExecutor queueExecutor = new HookQueueExecutor(queueClient, 5000, repositoryParser, database);
+        queueExecutor.start();
     }
-
-
 }

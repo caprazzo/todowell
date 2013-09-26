@@ -1,4 +1,4 @@
-package net.caprazzi.todowell;
+package net.caprazzi.giddone.parsing;
 
 import com.google.common.base.Optional;
 

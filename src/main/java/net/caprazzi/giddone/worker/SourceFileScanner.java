@@ -1,6 +1,9 @@
-package net.caprazzi.todowell;
+package net.caprazzi.giddone.worker;
 
 import com.google.common.base.Optional;
+import net.caprazzi.giddone.parsing.Language;
+import net.caprazzi.giddone.parsing.Languages;
+import net.caprazzi.giddone.parsing.SourceFile;
 
 import java.io.IOException;
 import java.nio.file.*;

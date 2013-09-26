@@ -1,6 +1,6 @@
-package net.caprazzi.todowell;
+package net.caprazzi.giddone.parsing;
 
-import com.google.common.base.Optional;
+import net.caprazzi.giddone.parsing.Language;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 

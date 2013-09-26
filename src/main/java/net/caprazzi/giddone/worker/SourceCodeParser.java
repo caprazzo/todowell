@@ -1,4 +1,6 @@
-package net.caprazzi.todowell;
+package net.caprazzi.giddone.worker;
+
+import net.caprazzi.giddone.parsing.*;
 
 import java.io.IOException;
 import java.nio.file.Path;

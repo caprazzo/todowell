@@ -1,4 +1,4 @@
-package net.caprazzi.todowell;
+package net.caprazzi.giddone.hook;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,7 +31,8 @@ public class HookQueueClient {
         this.baseUrl = baseUrl;
     }
 
-    public Optional<PostReceiveHook> headValue() throws IOException {
+    public Optional<QueueElement> headValue() throws IOException {
+        // TODO: info log
         Optional<Integer> head = head();
         if (!head.isPresent()) {
             return Optional.absent();
@@ -40,13 +41,16 @@ public class HookQueueClient {
     }
 
     private Optional<Integer> head() throws IOException {
+
         HttpGet get = new HttpGet(baseUrl + "/github/post-receive-hooks/chrome/hooks/head");
-
+        Log.debug("Fetching queue head from {}", get.getRequestLine());
         try {
             HttpResponse response = client.execute(get);
             Log.debug("Response to {}: {}", get, response);
             if (response.getStatusLine().getStatusCode() == 200) {
-                return Optional.of(Integer.parseInt(EntityUtils.toString(response.getEntity(), "UTF-8")));
+                int id = Integer.parseInt(EntityUtils.toString(response.getEntity(), "UTF-8"));
+                Log.debug("Obtained head {}", id);
+                return Optional.of(id);
             }
             return Optional.absent();
         }
@@ -55,13 +59,15 @@ public class HookQueueClient {
         }
     }
 
-    private Optional<PostReceiveHook> value(int id) throws IOException {
+    private Optional<QueueElement> value(int id) throws IOException {
+        // TODO: debug log
         HttpGet get = new HttpGet(baseUrl + "/github/post-receive-hooks/chrome/hooks/" + id + "/value");
+        Log.debug("Fetching value for {} from {}", get.getRequestLine());
         try {
             HttpResponse response = client.execute(get);
             Log.debug("Response to {}: {}", get, response);
             if (response.getStatusLine().getStatusCode() == 200) {
-                return Optional.of(mapper.readValue(response.getEntity().getContent(), PostReceiveHook.class));
+                return Optional.of(new QueueElement(id, mapper.readValue(response.getEntity().getContent(), PostReceiveHook.class)));
             }
             return Optional.absent();
         }
@@ -69,4 +75,13 @@ public class HookQueueClient {
             get.releaseConnection();
         }
     }
+
+    public void success(int id) {
+        // TODO: report success back to server
+    }
+
+    public void error(int id, Throwable t) {
+        // TODO: report error back to server
+    }
+
 }

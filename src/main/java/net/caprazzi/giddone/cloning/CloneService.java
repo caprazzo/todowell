@@ -1,4 +1,4 @@
-package net.caprazzi.todowell;
+package net.caprazzi.giddone.cloning;
 
 import com.google.common.base.Joiner;
 import org.slf4j.Logger;
@@ -18,6 +18,7 @@ public class CloneService {
         this.tempDir = tempDir;
     }
 
+    // TODO: add a request ID so tracing and cleaning is easier
     public Path clone(String cloneUrl, String branch) throws Exception {
         Path workerDir = Files.createTempDirectory(tempDir, "worker-");
         File workerLog = new File(workerDir.toFile(), "worker.log");

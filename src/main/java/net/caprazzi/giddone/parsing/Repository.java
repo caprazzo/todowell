@@ -1,4 +1,6 @@
-package net.caprazzi.todowell;
+package net.caprazzi.giddone.parsing;
+
+import net.caprazzi.giddone.hook.PostReceiveHook;
 
 public class Repository {
     private final String user;
@@ -27,5 +29,9 @@ public class Repository {
 
     public String getBranch() {
         return branch;
+    }
+
+    public static Repository fromHook(PostReceiveHook hook) {
+        return new Repository(hook.getRepository().getOwner().getName(), hook.getRepository().getName(), hook.getRepository().getCloneUrl(), hook.getBranch());
     }
 }

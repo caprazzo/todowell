@@ -1,4 +1,4 @@
-package net.caprazzi.todowell;
+package net.caprazzi.giddone.parsing;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;

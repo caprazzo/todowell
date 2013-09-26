@@ -43,7 +43,7 @@ public class HookQueueClient {
     private Optional<Integer> head() throws IOException {
 
         HttpGet get = new HttpGet(baseUrl + "/github/post-receive-hooks/chrome/hooks/head");
-        Log.debug("Fetching queue head from {}", get.getRequestLine());
+        Log.debug("Fetching queue value from {}", get.getRequestLine());
         try {
             HttpResponse response = client.execute(get);
             Log.debug("Response to {}: {}", get, response);

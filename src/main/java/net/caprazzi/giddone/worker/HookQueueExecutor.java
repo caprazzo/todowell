@@ -2,6 +2,7 @@ package net.caprazzi.giddone.worker;
 
 import com.google.common.base.Optional;
 import net.caprazzi.giddone.deploy.DeployService;
+import net.caprazzi.giddone.deploy.PresentationService;
 import net.caprazzi.giddone.hook.HookQueueClient;
 import net.caprazzi.giddone.hook.PostReceiveHook;
 import net.caprazzi.giddone.hook.QueueElement;
@@ -26,12 +27,14 @@ public class HookQueueExecutor {
     private final long pollDelay;
     private final RepositoryParser repositoryParser;
     private final DeployService deployService;
+    private final PresentationService presentationService;
 
-    public HookQueueExecutor(HookQueueClient client, long pollDelay, RepositoryParser repositoryParser, DeployService deployService) {
+    public HookQueueExecutor(HookQueueClient client, long pollDelay, RepositoryParser repositoryParser, DeployService deployService, PresentationService presentationService) {
         this.client = client;
         this.pollDelay = pollDelay;
         this.repositoryParser = repositoryParser;
         this.deployService = deployService;
+        this.presentationService = presentationService;
     }
 
     private Optional<QueueElement> next() {
@@ -81,7 +84,9 @@ public class HookQueueExecutor {
 
         TodoSnapshot snapshot = new TodoSnapshot(new Date(), hook, records);
 
-        deployService.deployPage(snapshot);
+        String html = presentationService.asHtml(snapshot);
+
+        deployService.deployHtmlPage(snapshot, html);
 
         // TODO: cleanup old repos if there are no errors
     }

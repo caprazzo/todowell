@@ -22,36 +22,13 @@ public class DeployService {
 
     private final AmazonS3 s3Client;
 
-    private final static ObjectMapper mapper = new ObjectMapper();
-    static {
-        // TODO: fix joda time serialization and convert all to joda
-        mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
-    }
-
     public DeployService(AmazonS3 s3Client) {
         this.s3Client = s3Client;
     }
 
-    public String htmlTemplate(String snapshotJson) {
-        // TODO: get and cache template from remote location
-        return "<!DOCTYPE html>\n" +
-        "<html>\n" +
-        "<head>\n" +
-        "    <script id=\"snapshot\">function snapshot() { return "  + snapshotJson + "; }</script>\n" +
-        "    <script src=\"/giddone/giddone.js\"></script>\n" +
-        "    <title>Giddone</title>\n" +
-        "</head>\n" +
-        "<body>\n" +
-        "<div ng-app ng-controller=\"MainCtrl\" ng-include src=\"mainUrl\"></div>\n" +
-        "</body>\n" +
-        "</html>";
-    }
-
-    public void deployPage(TodoSnapshot snapshot) throws IOException {
+    public void deployHtmlPage(TodoSnapshot snapshot, String html) throws IOException {
         String bucket = "giddone";
         String keyName = createKey(snapshot.getRepo());
-        String json = mapper.writeValueAsString(snapshot);
-        String html = htmlTemplate(json);
         Log.debug("Storing html: " + html);
 
         ObjectMetadata meta = new ObjectMetadata();
@@ -84,22 +61,22 @@ public class DeployService {
         }
         catch (AmazonServiceException ase) {
             // TODO: actually propagate exceptions
-            System.out.println("Caught an AmazonServiceException, which " +
+            Log.error("Caught an AmazonServiceException, which " +
                     "means your request made it " +
                     "to Amazon S3, but was rejected with an error response" +
                     " for some reason.");
-            System.out.println("Error Message:    " + ase.getMessage());
-            System.out.println("HTTP Status Code: " + ase.getStatusCode());
-            System.out.println("AWS Error Code:   " + ase.getErrorCode());
-            System.out.println("Error Type:       " + ase.getErrorType());
-            System.out.println("Request ID:       " + ase.getRequestId());
+            Log.error("Error Message:    " + ase.getMessage());
+            Log.error("HTTP Status Code: " + ase.getStatusCode());
+            Log.error("AWS Error Code:   " + ase.getErrorCode());
+            Log.error("Error Type:       " + ase.getErrorType());
+            Log.error("Request ID:       " + ase.getRequestId());
         } catch (AmazonClientException ace) {
-            System.out.println("Caught an AmazonClientException, which " +
+            Log.error("Caught an AmazonClientException, which " +
                     "means the client encountered " +
                     "an internal error while trying to " +
                     "communicate with S3, " +
                     "such as not being able to access the network.");
-            System.out.println("Error Message: " + ace.getMessage());
+            Log.error("Error Message: " + ace.getMessage());
         }
     }
 

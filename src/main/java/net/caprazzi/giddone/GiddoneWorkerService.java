@@ -33,16 +33,16 @@ public class GiddoneWorkerService {
         HookQueueClient queueClient = new HookQueueClient(httpClient, "http://gitdone-receive-hook.herokuapp.com");
 
         // TODO: read from config
-        Path workers = FileSystems.getDefault().getPath("./workers");
+        Path tempDir = FileSystems.getDefault().getPath("./workers");
         try {
-            Files.createDirectory(workers);
-            Log.debug("Created workers dir: {}", workers.toAbsolutePath());
+            Files.createDirectory(tempDir);
+            Log.debug("Created workers dir: {}", tempDir.toAbsolutePath());
         }
         catch(FileAlreadyExistsException ex) {
-            Log.debug("Using existing workers dir: {}", workers.toAbsolutePath());
+            Log.debug("Using existing workers dir: {}", tempDir.toAbsolutePath());
         }
 
-        CloneService cloneService = new CloneService(workers);
+        CloneService cloneService = new CloneService(tempDir);
 
         // TODO: load languages from config
         Languages languages = new Languages(new Language("Java", "java", CommentStrategy.DoubleSlash));
@@ -51,7 +51,7 @@ public class GiddoneWorkerService {
         TodoParser todoParser = new TodoParser();
 
         SourceCodeParser parser = new SourceCodeParser(sourceFileScanner, commentParser, todoParser);
-        RepositoryParser repositoryParser = new RepositoryParser(cloneService, parser, workers);
+        RepositoryParser repositoryParser = new RepositoryParser(cloneService, parser, tempDir);
 
         // TODO: from config
         String myAccessKeyID = "1P1SGYDKGB3TJP35Z602";

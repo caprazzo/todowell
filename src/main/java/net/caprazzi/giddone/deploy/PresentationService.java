@@ -1,6 +1,5 @@
 package net.caprazzi.giddone.deploy;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import net.caprazzi.giddone.parsing.TodoSnapshot;
@@ -21,9 +20,8 @@ public class PresentationService {
         return mapper.writeValueAsString(snapshot);
     }
 
-
+    // TODO: get and cache template from config
     private String htmlTemplate(String snapshotJson) {
-        // TODO: get and cache template from remote location
         return "<!DOCTYPE html>\n" +
                 "<html>\n" +
                 "<head>\n" +

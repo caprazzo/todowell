@@ -55,7 +55,9 @@ Source code todo
 
 ## Store extracted json in S3:
 
-https://s3.amazonaws.com/giddone/repos/mcaprari/botto/master/todo.json
+https://s3.amazonaws.com/giddone/mcaprari/botto/master
+
+
 
 
 

@@ -6,6 +6,7 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
 import net.caprazzi.giddone.cloning.CloneService;
 import net.caprazzi.giddone.deploy.DeployService;
+import net.caprazzi.giddone.deploy.PresentationService;
 import net.caprazzi.giddone.hook.HookQueueClient;
 import net.caprazzi.giddone.parsing.*;
 import net.caprazzi.giddone.worker.HookQueueExecutor;
@@ -60,7 +61,9 @@ public class GiddoneWorkerService {
         AmazonS3 s3client = new AmazonS3Client(myCredentials);
         DeployService database = new DeployService(s3client);
 
-        HookQueueExecutor queueExecutor = new HookQueueExecutor(queueClient, 5000, repositoryParser, database);
+        PresentationService presentationService = new PresentationService();
+
+        HookQueueExecutor queueExecutor = new HookQueueExecutor(queueClient, 5000, repositoryParser, database, presentationService);
         queueExecutor.start();
     }
 }

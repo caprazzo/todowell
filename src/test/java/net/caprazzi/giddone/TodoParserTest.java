@@ -1,7 +1,6 @@
-package net.caprazzi.gitdone.parser.parser;
+package net.caprazzi.giddone;
 
 import com.google.common.base.Optional;
-import net.caprazzi.giddone.*;
 import net.caprazzi.giddone.parsing.*;
 import org.junit.Assert;
 import org.junit.experimental.theories.*;

@@ -1,7 +1,4 @@
-package net.caprazzi.gitdone.parser.parser;
-
-
-
+package net.caprazzi.giddone;
 
 import net.caprazzi.giddone.parsing.CommentLine;
 import net.caprazzi.giddone.parsing.CommentStrategy;

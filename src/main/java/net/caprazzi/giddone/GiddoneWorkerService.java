@@ -13,6 +13,7 @@ import com.yammer.dropwizard.config.Environment;
 import net.caprazzi.giddone.cloning.CloneService;
 import net.caprazzi.giddone.deploy.DeployService;
 import net.caprazzi.giddone.deploy.PresentationService;
+import net.caprazzi.giddone.healthchecks.AwsS3HealthCheck;
 import net.caprazzi.giddone.hook.HookQueueClient;
 import net.caprazzi.giddone.parsing.*;
 import net.caprazzi.giddone.resources.GiddoneResource;
@@ -30,10 +31,15 @@ import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class GiddoneWorkerService extends Service<GiddoneWorkerServiceConfiguration> {
 
     private static final Logger Log = LoggerFactory.getLogger(GiddoneWorkerService.class);
+
+    private static final ScheduledExecutorService healthCheckExecutor = Executors.newSingleThreadScheduledExecutor();
 
     public static void main(String[] args) throws Exception {
         new GiddoneWorkerService().run(args);
@@ -46,45 +52,21 @@ public class GiddoneWorkerService extends Service<GiddoneWorkerServiceConfigurat
 
     @Override
     public void run(GiddoneWorkerServiceConfiguration configuration, Environment environment) throws Exception {
-        /*
-
-
-        HttpClient httpClient = new DefaultHttpClient();
-        // TODO: read from config
-        HookQueueClient queueClient = new HookQueueClient(httpClient, "http://gitdone-receive-hook.herokuapp.com");
-
-        // TODO: read from config
-        Path tempDir = FileSystems.getDefault().getPath("./workers");
-        try {
-            Files.createDirectory(tempDir);
-            Log.debug("Created workers dir: {}", tempDir.toAbsolutePath());
-        }
-        catch(FileAlreadyExistsException ex) {
-            Log.debug("Using existing workers dir: {}", tempDir.toAbsolutePath());
-        }
-
-
-
-        CloneService cloneService = injector.getInstance(CloneService.class);
-
-        // TODO: load languages from config
-        Languages languages = new Languages(new Language("Java", "java", CommentStrategy.DoubleSlash));
-        SourceFileScanner sourceFileScanner = new SourceFileScanner(languages);
-        CommentParser commentParser = new CommentParser();
-        TodoParser todoParser = new TodoParser();
-
-        SourceCodeParser parser = new SourceCodeParser(sourceFileScanner, commentParser, todoParser);
-        RepositoryParser repositoryParser = new RepositoryParser(cloneService, parser);
-
-        // TODO: from config
-
-        DeployService database = new DeployService(s3client);
-
-        PresentationService presentationService = new PresentationService();
-
-        HookQueueExecutor queueExecutor = new HookQueueExecutor(queueClient, 5000, repositoryParser, database, presentationService);
-        */
         Injector injector = Guice.createInjector(new ServiceModule(configuration));
+        final AwsS3HealthCheck instance = injector.getInstance(AwsS3HealthCheck.class);
+        environment.addHealthCheck(instance);
+
+        healthCheckExecutor.scheduleAtFixedRate(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    instance.check();
+                } catch (Exception e) {
+                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                }
+            }
+        }, 0, 5, TimeUnit.SECONDS);
+
         environment.addResource(injector.getInstance(GiddoneResource.class));
         injector.getInstance(HookQueueExecutor.class).start();
     }
@@ -117,8 +99,8 @@ public class GiddoneWorkerService extends Service<GiddoneWorkerServiceConfigurat
             bind(Long.class).annotatedWith(Names.named("hook-worker-polling")).toInstance(configuration.getHookQueuePolling());
             bind(Languages.class).toInstance(new Languages(new Language("Java", "java", CommentStrategy.DoubleSlash)));
 
-            bind(AWSCredentials.class).toInstance(configuration.getAws());
-            bind(AmazonS3.class).to(AmazonS3Client.class);
+            //bind(AWSCredentials.class).toInstance();
+            bind(AmazonS3.class).toInstance(new AmazonS3Client(new BasicAWSCredentials(configuration.getAws().getAWSAccessKeyId(), configuration.getAws().getAWSSecretKey())));
         }
     }
 }

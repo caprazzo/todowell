@@ -41,7 +41,7 @@ public class GiddoneService extends Service<GiddoneWorkerServiceConfiguration> {
 
     @Override
     public void initialize(Bootstrap<GiddoneWorkerServiceConfiguration> bootstrap) {
-        //To change body of implemented methods use File | Settings | File Templates.
+
     }
 
     @Override
@@ -53,13 +53,16 @@ public class GiddoneService extends Service<GiddoneWorkerServiceConfiguration> {
         healthCheckExecutor.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
-                try {
-                    instance.check();
-                } catch (Exception e) {
-                    e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                }
+                  instance.check();
             }
         }, 0, 5, TimeUnit.SECONDS);
+
+        healthCheckExecutor.scheduleAtFixedRate(new Runnable() {
+            @Override
+            public void run() {
+                Log.info("-- MARK --");
+            }
+        }, 0 ,1, TimeUnit.MINUTES);
 
         environment.addResource(injector.getInstance(GiddoneResource.class));
         injector.getInstance(HookQueueExecutor.class).start();

@@ -1,10 +1,6 @@
 http:
     port: 8080
 
-aws:
-    AWSAccessKeyId: 1P1SGYDKGB3TJP35Z602
-    AWSSecretKey: jJs0pddIZrqJjXnOyv479MatKr38HlmsEMb4C6LF
-
 hookQueueUrl: http://gitdone-receive-hook.herokuapp.com
 hookQueuePolling: 5000
 workerTempDir: ./workers
@@ -16,6 +12,7 @@ logging:
     console:
         enabled: true
         logFormat: "%-5p [%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}] service=giddone-worker-service %mdc{executorId}%mdc{jobId}%mdc{elementId}%mdc{repoId}%c{0}: %m%n%xEx"
+        timeZone: UTC
 
     file:
         enabled: true

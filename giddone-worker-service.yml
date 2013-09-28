@@ -16,5 +16,5 @@ logging:
         net.caprazzi: DEBUG
     console:
         enabled: true
-        logFormat: "%-5p [%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}] %mdc{executorId}%mdc{jobId}%c: %m%n%xEx"
+        logFormat: "%-5p [%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}] %mdc{executorId}%mdc{jobId}%mdc{elementId}%mdc{repoId}%c: %m%n%xEx"
 

@@ -83,7 +83,7 @@ public class HookQueueClient {
 
     public void success(int id) throws IOException {
         HttpPut put = new HttpPut(baseUrl + "/github/post-receive-hooks/chrome/hooks/" + id + "/status/COMPLETE");
-        Log.debug("Updating status for {} to SUCCESS");
+        Log.debug("Updating status for {} to COMPLETE");
         try {
             client.execute(put);
         }

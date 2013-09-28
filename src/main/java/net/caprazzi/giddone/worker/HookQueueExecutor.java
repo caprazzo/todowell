@@ -3,6 +3,7 @@ package net.caprazzi.giddone.worker;
 import com.google.common.base.Optional;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+import net.caprazzi.giddone.RandomStringGenerator;
 import net.caprazzi.giddone.deploy.DeployService;
 import net.caprazzi.giddone.deploy.PresentationService;
 import net.caprazzi.giddone.hook.HookQueueClient;
@@ -13,6 +14,7 @@ import net.caprazzi.giddone.parsing.TodoRecord;
 import net.caprazzi.giddone.parsing.TodoSnapshot;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 
 import java.io.IOException;
 import java.util.Date;
@@ -30,6 +32,9 @@ public class HookQueueExecutor {
     private final RepositoryParser repositoryParser;
     private final DeployService deployService;
     private final PresentationService presentationService;
+
+    private final String executorId = RandomStringGenerator.randomString();
+    private long jobCount = 0;
 
     @Inject
     public HookQueueExecutor(HookQueueClient client, @Named("hook-worker-polling") long pollDelay, RepositoryParser repositoryParser, DeployService deployService, PresentationService presentationService) {
@@ -49,9 +54,11 @@ public class HookQueueExecutor {
     }
 
     public void start() {
+
         executor.submit(new Runnable() {
             @Override
             public void run() {
+                MDC.put("executorId", "executor=" + executorId + " ");
                 while(!executor.isShutdown()) {
 
                     Optional<QueueElement> value = next();
@@ -59,6 +66,9 @@ public class HookQueueExecutor {
                         sleep(pollDelay);
                         continue;
                     }
+
+                    MDC.put("jobId", "job=" + jobCount++ + " ");
+
 
                     try {
                         process(value.get().getValue());
@@ -78,7 +88,11 @@ public class HookQueueExecutor {
                             Log.error("Error while reporting error to queue: {}", ex);
                         }
                     }
+                    finally {
+                        MDC.remove("jobId");
+                    }
                 }
+                MDC.remove("executorId");
             }
         });
     }

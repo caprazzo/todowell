@@ -1,6 +1,7 @@
 package net.caprazzi.giddone.worker;
 
 import com.google.common.base.Optional;
+import com.google.inject.Inject;
 import net.caprazzi.giddone.parsing.Language;
 import net.caprazzi.giddone.parsing.Languages;
 import net.caprazzi.giddone.parsing.SourceFile;
@@ -14,6 +15,7 @@ public class SourceFileScanner {
 
     private final Languages languages;
 
+    @Inject
     public SourceFileScanner(Languages languages) {
         this.languages = languages;
     }

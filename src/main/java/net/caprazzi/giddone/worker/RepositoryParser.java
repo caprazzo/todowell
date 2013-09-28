@@ -1,5 +1,6 @@
 package net.caprazzi.giddone.worker;
 
+import com.google.inject.Inject;
 import net.caprazzi.giddone.cloning.CloneService;
 import net.caprazzi.giddone.parsing.Todo;
 
@@ -10,7 +11,8 @@ public class RepositoryParser {
     private final CloneService cloneService;
     private final SourceCodeParser parser;
 
-    public RepositoryParser(CloneService cloneService, SourceCodeParser parser, Path t) {
+    @Inject
+    public RepositoryParser(CloneService cloneService, SourceCodeParser parser) {
         this.cloneService = cloneService;
         this.parser = parser;
     }

@@ -1,6 +1,8 @@
 package net.caprazzi.giddone.cloning;
 
 import com.google.common.base.Joiner;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,7 +16,8 @@ public class CloneService {
     private static final Logger Log = LoggerFactory.getLogger(CloneService.class);
     private final Path tempDir;
 
-    public CloneService(Path tempDir) {
+    @Inject
+    public CloneService(@Named("worker-temp-dir") Path tempDir) {
         this.tempDir = tempDir;
     }
 

@@ -3,12 +3,15 @@ package net.caprazzi.giddone.hook;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Optional;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 
 import java.io.IOException;
 
@@ -26,7 +29,8 @@ public class HookQueueClient {
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
-    public HookQueueClient(HttpClient client, String baseUrl) {
+    @Inject
+    public HookQueueClient(HttpClient client, @Named("hook-queue-url") String baseUrl) {
         this.client = client;
         this.baseUrl = baseUrl;
     }

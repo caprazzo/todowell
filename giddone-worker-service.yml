@@ -1,0 +1,18 @@
+http:
+    port: 8080
+
+aws:
+    AWSAccessKeyId: 1P1SGYDKGB3TJP35Z602
+    AWSSecretKey: jJs0pddIZrqJjXnOyv479MatKr38HlmsEMb4C6LF
+
+hookQueueUrl: http://gitdone-receive-hook.herokuapp.com
+hookQueuePolling: 5000
+workerTempDir: ./workers
+
+logging:
+    level: INFO
+    loggers:
+        net.caprazzi: DEBUG
+    console:
+        enabled: true
+

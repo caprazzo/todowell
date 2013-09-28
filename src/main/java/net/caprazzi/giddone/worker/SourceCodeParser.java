@@ -1,5 +1,6 @@
 package net.caprazzi.giddone.worker;
 
+import com.google.inject.Inject;
 import net.caprazzi.giddone.parsing.*;
 
 import java.io.IOException;
@@ -11,6 +12,7 @@ public class SourceCodeParser {
     private final CommentParser commentParser;
     private final TodoParser todoParser;
 
+    @Inject
     public SourceCodeParser(SourceFileScanner scanner, CommentParser commentParser, TodoParser todoParser) {
         this.scanner = scanner;
         this.commentParser = commentParser;

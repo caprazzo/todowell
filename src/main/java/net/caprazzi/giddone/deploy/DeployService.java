@@ -8,6 +8,7 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.google.inject.Inject;
 import net.caprazzi.giddone.parsing.Repository;
 import net.caprazzi.giddone.parsing.TodoSnapshot;
 import org.slf4j.Logger;
@@ -22,6 +23,7 @@ public class DeployService {
 
     private final AmazonS3 s3Client;
 
+    @Inject
     public DeployService(AmazonS3 s3Client) {
         this.s3Client = s3Client;
     }

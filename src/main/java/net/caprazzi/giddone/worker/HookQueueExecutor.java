@@ -1,6 +1,8 @@
 package net.caprazzi.giddone.worker;
 
 import com.google.common.base.Optional;
+import com.google.inject.Inject;
+import com.google.inject.name.Named;
 import net.caprazzi.giddone.deploy.DeployService;
 import net.caprazzi.giddone.deploy.PresentationService;
 import net.caprazzi.giddone.hook.HookQueueClient;
@@ -29,7 +31,8 @@ public class HookQueueExecutor {
     private final DeployService deployService;
     private final PresentationService presentationService;
 
-    public HookQueueExecutor(HookQueueClient client, long pollDelay, RepositoryParser repositoryParser, DeployService deployService, PresentationService presentationService) {
+    @Inject
+    public HookQueueExecutor(HookQueueClient client, @Named("hook-worker-polling") long pollDelay, RepositoryParser repositoryParser, DeployService deployService, PresentationService presentationService) {
         this.client = client;
         this.pollDelay = pollDelay;
         this.repositoryParser = repositoryParser;

@@ -14,7 +14,16 @@ logging:
     level: INFO
     loggers:
         net.caprazzi: DEBUG
+
     console:
         enabled: true
-        logFormat: "%-5p [%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}] %mdc{executorId}%mdc{jobId}%mdc{elementId}%mdc{repoId}%c{0}: %m%n%xEx"
+        logFormat: "%-5p [%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}] service=giddone-worker-service %mdc{executorId}%mdc{jobId}%mdc{elementId}%mdc{repoId}%c{0}: %m%n%xEx"
+
+    file:
+        enabled: true
+        logFormat: "%-5p [%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}] service=giddone-worker-service %mdc{executorId}%mdc{jobId}%mdc{elementId}%mdc{repoId}%c{0}: %m%n%xEx"
+        currentLogFilename: ./logs/giddone-worker-service.log
+        archivedLogFilenamePattern: ./logs/rotated/giddone-worker-service-%d.log.gz
+        archivedFileCount: 5
+        timeZone: UTC
 

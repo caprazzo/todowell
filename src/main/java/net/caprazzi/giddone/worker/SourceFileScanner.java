@@ -5,6 +5,8 @@ import com.google.inject.Inject;
 import net.caprazzi.giddone.parsing.Language;
 import net.caprazzi.giddone.parsing.Languages;
 import net.caprazzi.giddone.parsing.SourceFile;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.nio.file.*;
@@ -12,6 +14,8 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.*;
 
 public class SourceFileScanner {
+
+    private static final Logger Log = LoggerFactory.getLogger(SourceFileScanner.class);
 
     private final Languages languages;
 
@@ -27,16 +31,25 @@ public class SourceFileScanner {
      * @throws IOException
      */
     public final Iterable<SourceFile> scan(final Path path) throws IOException {
+        Log.info("Scanning started in {}", path);
+
         final LinkedList<SourceFile> sourceFiles = new LinkedList<SourceFile>();
-        Files.walkFileTree(path, new SimpleFileVisitor<Path>() {
-            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
-                Optional<SourceFile> sourceFile = tryGetSourceFile(path, file);
-                if (sourceFile.isPresent()) {
-                    sourceFiles.add(sourceFile.get());
+        try {
+            Files.walkFileTree(path, new SimpleFileVisitor<Path>() {
+                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) {
+                    Optional<SourceFile> sourceFile = tryGetSourceFile(path, file);
+                    if (sourceFile.isPresent()) {
+                        sourceFiles.add(sourceFile.get());
+                    }
+                    return FileVisitResult.CONTINUE;
                 }
-                return FileVisitResult.CONTINUE;
-            }
-        });
+            });
+            Log.info("Scanning completed with {}", sourceFiles.size());
+        }
+        catch (IOException ex) {
+            Log.error("Scanning failure: {}", ex);
+            throw ex;
+        }
         return sourceFiles;
     }
 

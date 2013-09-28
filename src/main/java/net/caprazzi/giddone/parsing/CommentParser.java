@@ -2,6 +2,8 @@ package net.caprazzi.giddone.parsing;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,8 +11,11 @@ import java.util.LinkedList;
 
 public class CommentParser {
 
+    private static final Logger Log = LoggerFactory.getLogger(CommentParser.class);
 
     private final Iterable<CommentLine> parse(SourceFile source) throws IOException {
+
+
         LinkedList<CommentLine> comments = new LinkedList<CommentLine>();
 
         LineIterator it = FileUtils.lineIterator(source.getFile().toFile(), "UTF-8");
@@ -35,12 +40,20 @@ public class CommentParser {
     }
 
     public Iterable<CommentLine> parse(Iterable<SourceFile> sourceFiles) throws IOException {
+        Log.info("Parsing started");
         ArrayList<CommentLine> commentLines = new ArrayList<CommentLine>();
-        for(SourceFile file : sourceFiles) {
-            // TODO: meter file parsing time
-            for (CommentLine line : parse(file)) {
-                commentLines.add(line);
+
+        try {
+            for(SourceFile file : sourceFiles) {
+                // TODO: meter file parsing time
+                for (CommentLine line : parse(file)) {
+                    commentLines.add(line);
+                }
             }
+            Log.info("Parsing completed with {} comment lines", commentLines.size());
+        }
+        catch (IOException ex) {
+            Log.error("Parsing failure: {}", ex);
         }
         return commentLines;
     }

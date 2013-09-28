@@ -31,19 +31,29 @@ public class DeployService {
     public void deployHtmlPage(TodoSnapshot snapshot, String html) throws IOException {
         String bucket = "giddone";
         String keyName = createKey(snapshot.getRepo());
-        Log.debug("Storing html: " + html);
+
+        Log.info("Deploy started to {}/{}", bucket, keyName);
 
         ObjectMetadata meta = new ObjectMetadata();
         meta.setContentType("text/html");
         meta.setContentEncoding("UTF-8");
         meta.setContentEncoding("gzip");
 
-        PutObjectRequest put = new PutObjectRequest(bucket, keyName, gzip(html), meta);
-        put.setCannedAcl(CannedAccessControlList.PublicRead);
+        PutObjectRequest request = new PutObjectRequest(bucket, keyName, gzip(html), meta);
+        request.setCannedAcl(CannedAccessControlList.PublicRead);
 
-        Log.info("Saving to {}/{}", bucket, keyName);
+        try {
+            s3Client.putObject(request);
+        }
+        catch (AmazonServiceException ase) {
+            Log.error("Deploy failed with AWS Service Exception: {}", ase);
+            throw ase;
+        }
+        catch (AmazonClientException ace) {
+            Log.error("Deploy failed with AWS Client Exception: {}", ace);
+        }
 
-        s3put(put);
+        Log.info("Deploy success");
     }
 
     private InputStream gzip(String string) throws IOException {
@@ -55,31 +65,6 @@ public class DeployService {
         gzipOut.close();
 
         return new ByteArrayInputStream(out.toByteArray());
-    }
-
-    private void s3put(PutObjectRequest request) {
-        try {
-            s3Client.putObject(request);
-        }
-        catch (AmazonServiceException ase) {
-            // TODO: actually propagate exceptions
-            Log.error("Caught an AmazonServiceException, which " +
-                    "means your request made it " +
-                    "to Amazon S3, but was rejected with an error response" +
-                    " for some reason.");
-            Log.error("Error Message:    " + ase.getMessage());
-            Log.error("HTTP Status Code: " + ase.getStatusCode());
-            Log.error("AWS Error Code:   " + ase.getErrorCode());
-            Log.error("Error Type:       " + ase.getErrorType());
-            Log.error("Request ID:       " + ase.getRequestId());
-        } catch (AmazonClientException ace) {
-            Log.error("Caught an AmazonClientException, which " +
-                    "means the client encountered " +
-                    "an internal error while trying to " +
-                    "communicate with S3, " +
-                    "such as not being able to access the network.");
-            Log.error("Error Message: " + ace.getMessage());
-        }
     }
 
     private String createKey(Repository repo) {

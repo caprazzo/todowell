@@ -67,9 +67,11 @@ public class HookQueueExecutor {
                         continue;
                     }
 
-                    MDC.put("jobId", "job=" + jobCount++ + " ");
+                    MDC.put("jobId", "job=" + jobCount + " ");
                     MDC.put("elementId", "el=" + value.get().getId() + " ");
                     MDC.put("repoId", "repo=" + value.get().getValue().getRepository().getCloneUrl() + " ");
+
+                    Log.info("Job {} started", jobCount);
 
                     try {
                         process(value.get().getValue());
@@ -90,6 +92,8 @@ public class HookQueueExecutor {
                         }
                     }
                     finally {
+                        Log.info("Job {} completed", jobCount);
+                        jobCount++;
                         MDC.remove("jobId");
                         MDC.remove("elementId");
                         MDC.remove("repoId");

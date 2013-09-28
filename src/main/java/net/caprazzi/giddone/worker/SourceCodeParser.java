@@ -2,11 +2,15 @@ package net.caprazzi.giddone.worker;
 
 import com.google.inject.Inject;
 import net.caprazzi.giddone.parsing.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.nio.file.Path;
 
 public class SourceCodeParser {
+
+    private static final Logger Log = LoggerFactory.getLogger(SourceCodeParser.class);
 
     private final SourceFileScanner scanner;
     private final CommentParser commentParser;

@@ -27,7 +27,7 @@ public class CloneService {
     public Clone clone(String cloneUrl, String branch) throws Exception {
         Path workerDir = Files.createTempDirectory(tempDir, "worker-");
         File workerLog = new File(workerDir.toFile(), "worker.log");
-        Log.info("STARTED Cloning {}/{} to {}", cloneUrl, branch, workerDir);
+        Log.info("Cloning started workDir={}", workerDir);
 
         try {
 
@@ -39,7 +39,7 @@ public class CloneService {
                     .redirectErrorStream(true)
                     .redirectOutput(ProcessBuilder.Redirect.appendTo(workerLog));
 
-            Log.info("Executing {}", Joiner.on(" ").join(builder.command()));
+            Log.info("Cloning executing {}", Joiner.on(" ").join(builder.command()));
 
             Process process = builder.start();
 
@@ -49,17 +49,18 @@ public class CloneService {
                 throw new Exception("Git process exited with " + exit);
             }
 
-            Log.info("COMPLETED Cloning {}/{} to {}", cloneUrl, branch, workerDir);
+            Log.info("Cloning completed successfully");
             // TODO: return a full descriptor of the cloning operation
             return new Clone(true, null, workerLog, workerDir, Paths.get(workerDir.toString(), "repo"));
         }
         catch (Exception ex) {
-            Log.error("ERROR Cloning {}/{} to {}: {}", cloneUrl, branch, workerDir, ex);
+            Log.error("Cloning failed: {}", ex);
             return new Clone(false, null, workerLog, workerDir, null);
         }
     }
 
     public void cleanUp(Clone clone) {
+        Log.info("Cleaning up worker dir");
         try {
             FileUtils.deleteDirectory(clone.getWorkerDir().toFile());
         } catch (IOException e) {

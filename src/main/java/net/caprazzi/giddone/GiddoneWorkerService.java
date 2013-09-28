@@ -1,28 +1,23 @@
 package net.caprazzi.giddone;
 
-import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
-import com.google.inject.*;
+import com.google.inject.AbstractModule;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import com.google.inject.name.Names;
 import com.yammer.dropwizard.Service;
 import com.yammer.dropwizard.client.HttpClientBuilder;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
-import net.caprazzi.giddone.cloning.CloneService;
-import net.caprazzi.giddone.deploy.DeployService;
-import net.caprazzi.giddone.deploy.PresentationService;
 import net.caprazzi.giddone.healthchecks.AwsS3HealthCheck;
-import net.caprazzi.giddone.hook.HookQueueClient;
-import net.caprazzi.giddone.parsing.*;
+import net.caprazzi.giddone.parsing.CommentStrategy;
+import net.caprazzi.giddone.parsing.Language;
+import net.caprazzi.giddone.parsing.Languages;
 import net.caprazzi.giddone.resources.GiddoneResource;
 import net.caprazzi.giddone.worker.HookQueueExecutor;
-import net.caprazzi.giddone.worker.RepositoryParser;
-import net.caprazzi.giddone.worker.SourceCodeParser;
-import net.caprazzi.giddone.worker.SourceFileScanner;
 import org.apache.http.client.HttpClient;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,7 +33,6 @@ import java.util.concurrent.TimeUnit;
 public class GiddoneWorkerService extends Service<GiddoneWorkerServiceConfiguration> {
 
     private static final Logger Log = LoggerFactory.getLogger(GiddoneWorkerService.class);
-
     private static final ScheduledExecutorService healthCheckExecutor = Executors.newSingleThreadScheduledExecutor();
 
     public static void main(String[] args) throws Exception {
@@ -86,8 +80,7 @@ public class GiddoneWorkerService extends Service<GiddoneWorkerServiceConfigurat
             try {
                 Files.createDirectory(tempDir);
                 Log.debug("Created workers dir: {}", tempDir.toAbsolutePath());
-            }
-            catch(FileAlreadyExistsException ex) {
+            } catch (FileAlreadyExistsException ex) {
                 Log.debug("Using existing workers dir: {}", tempDir.toAbsolutePath());
             } catch (IOException e) {
                 throw new RuntimeException("Failed to created directory " + tempDir, e);
@@ -99,7 +92,6 @@ public class GiddoneWorkerService extends Service<GiddoneWorkerServiceConfigurat
             bind(Long.class).annotatedWith(Names.named("hook-worker-polling")).toInstance(configuration.getHookQueuePolling());
             bind(Languages.class).toInstance(new Languages(new Language("Java", "java", CommentStrategy.DoubleSlash)));
 
-            //bind(AWSCredentials.class).toInstance();
             bind(AmazonS3.class).toInstance(new AmazonS3Client(new BasicAWSCredentials(configuration.getAws().getAWSAccessKeyId(), configuration.getAws().getAWSSecretKey())));
         }
     }

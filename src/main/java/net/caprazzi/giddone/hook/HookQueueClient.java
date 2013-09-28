@@ -8,6 +8,7 @@ import com.google.inject.name.Named;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPut;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -80,12 +81,26 @@ public class HookQueueClient {
         }
     }
 
-    public void success(int id) {
-        // TODO: report success back to server
+    public void success(int id) throws IOException {
+        HttpPut put = new HttpPut(baseUrl + "/github/post-receive-hooks/chrome/hooks/" + id + "/status/COMPLETE");
+        Log.debug("Updating status for {} to SUCCESS");
+        try {
+            client.execute(put);
+        }
+        finally {
+            put.releaseConnection();
+        }
     }
 
-    public void error(int id, Throwable t) {
-        // TODO: report error back to server
+    public void error(int id, Throwable t) throws IOException {
+        HttpPut put = new HttpPut(baseUrl + "/github/post-receive-hooks/chrome/hooks/" + id + "/status/ERROR");
+        Log.debug("Updating status for {} to ERROR");
+        try {
+            client.execute(put);
+        }
+        finally {
+            put.releaseConnection();
+        }
     }
 
 }

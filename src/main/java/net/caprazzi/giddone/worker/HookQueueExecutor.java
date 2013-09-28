@@ -62,12 +62,21 @@ public class HookQueueExecutor {
 
                     try {
                         process(value.get().getValue());
-                        client.success(value.get().getId());
+                        try {
+                            client.success(value.get().getId());
+                        }
+                        catch (Exception ex) {
+                            Log.error("Error while reporting success to queue: {}", ex);
+                        }
                     }
                     catch (Exception ex) {
                         Log.error("Error while processing {}: {}", value.get(), ex);
                         ex.printStackTrace();
-                        client.error(value.get().getId(), ex);
+                        try {
+                            client.error(value.get().getId(), ex);
+                        } catch (IOException e) {
+                            Log.error("Error while reporting error to queue: {}", ex);
+                        }
                     }
                 }
             }

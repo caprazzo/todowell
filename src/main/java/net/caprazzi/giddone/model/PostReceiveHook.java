@@ -1,4 +1,4 @@
-package net.caprazzi.giddone.hook;
+package net.caprazzi.giddone.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.builder.ToStringBuilder;

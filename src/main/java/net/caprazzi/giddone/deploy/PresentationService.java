@@ -2,7 +2,7 @@ package net.caprazzi.giddone.deploy;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import net.caprazzi.giddone.parsing.TodoSnapshot;
+import net.caprazzi.giddone.model.TodoSnapshot;
 
 public class PresentationService {
 

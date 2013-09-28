@@ -1,5 +1,7 @@
 package net.caprazzi.giddone.parsing;
 
+import net.caprazzi.giddone.model.CommentLine;
+import net.caprazzi.giddone.model.Language;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
 import org.slf4j.Logger;

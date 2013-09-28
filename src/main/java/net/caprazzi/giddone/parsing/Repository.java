@@ -1,6 +1,6 @@
 package net.caprazzi.giddone.parsing;
 
-import net.caprazzi.giddone.hook.PostReceiveHook;
+import net.caprazzi.giddone.model.PostReceiveHook;
 
 public class Repository {
     private final String user;

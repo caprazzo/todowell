@@ -1,6 +1,6 @@
 package net.caprazzi.giddone.parsing;
 
-import net.caprazzi.giddone.parsing.Language;
+import net.caprazzi.giddone.model.Language;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 

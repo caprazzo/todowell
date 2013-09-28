@@ -1,6 +1,6 @@
-package net.caprazzi.giddone.parsing;
+package net.caprazzi.giddone.model;
 
-import net.caprazzi.giddone.parsing.CommentStrategy;
+import net.caprazzi.giddone.model.CommentStrategy;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 

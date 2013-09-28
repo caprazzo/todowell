@@ -1,4 +1,4 @@
-package net.caprazzi.giddone.parsing;
+package net.caprazzi.giddone.model;
 
 public enum CommentStrategy {
     DoubleSlash("//"),

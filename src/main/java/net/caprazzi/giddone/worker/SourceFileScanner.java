@@ -2,8 +2,8 @@ package net.caprazzi.giddone.worker;
 
 import com.google.common.base.Optional;
 import com.google.inject.Inject;
-import net.caprazzi.giddone.parsing.Language;
-import net.caprazzi.giddone.parsing.Languages;
+import net.caprazzi.giddone.model.Language;
+import net.caprazzi.giddone.model.Languages;
 import net.caprazzi.giddone.parsing.SourceFile;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

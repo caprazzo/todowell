@@ -1,6 +1,10 @@
 package net.caprazzi.giddone;
 
 import com.google.common.base.Optional;
+import net.caprazzi.giddone.model.CommentLine;
+import net.caprazzi.giddone.model.CommentStrategy;
+import net.caprazzi.giddone.model.Language;
+import net.caprazzi.giddone.model.Todo;
 import net.caprazzi.giddone.parsing.*;
 import org.junit.Assert;
 import org.junit.experimental.theories.*;

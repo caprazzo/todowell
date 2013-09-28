@@ -1,6 +1,4 @@
-package net.caprazzi.giddone.hook;
-
-import net.caprazzi.giddone.hook.PostReceiveHook;
+package net.caprazzi.giddone.model;
 
 public class QueueElement {
     private final int id;

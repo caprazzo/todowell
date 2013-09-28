@@ -1,8 +1,8 @@
 package net.caprazzi.giddone;
 
-import net.caprazzi.giddone.parsing.CommentLine;
-import net.caprazzi.giddone.parsing.CommentStrategy;
-import net.caprazzi.giddone.parsing.Language;
+import net.caprazzi.giddone.model.CommentLine;
+import net.caprazzi.giddone.model.CommentStrategy;
+import net.caprazzi.giddone.model.Language;
 import net.caprazzi.giddone.parsing.SourceFile;
 import org.junit.Assert;
 import org.junit.Test;

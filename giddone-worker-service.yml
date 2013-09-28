@@ -12,8 +12,6 @@ workerTempDir: ./workers
 logging:
 
     level: INFO
-    loggers:
-        net.caprazzi: DEBUG
 
     console:
         enabled: true

@@ -1,4 +1,4 @@
-package net.caprazzi.giddone.cloning;
+package net.caprazzi.giddone.model;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
@@ -33,7 +33,7 @@ public class Clone {
         return log;
     }
 
-    Path getWorkerDir() {
+    public Path getWorkerDir() {
         return workerDir;
     }
 

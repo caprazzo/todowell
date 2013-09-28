@@ -3,6 +3,7 @@ package net.caprazzi.giddone.cloning;
 import com.google.common.base.Joiner;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+import net.caprazzi.giddone.model.Clone;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package net.caprazzi.giddone.parsing;
+package net.caprazzi.giddone.model;
 
 import com.google.common.base.Optional;
 import com.google.common.collect.BiMap;

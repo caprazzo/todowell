@@ -1,8 +1,6 @@
-package net.caprazzi.giddone.parsing;
+package net.caprazzi.giddone.model;
 
-import net.caprazzi.giddone.hook.PostReceiveHook;
 import net.caprazzi.giddone.parsing.Repository;
-import net.caprazzi.giddone.parsing.TodoRecord;
 
 import java.util.Collection;
 import java.util.Date;

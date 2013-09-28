@@ -1,4 +1,6 @@
-package net.caprazzi.giddone.parsing;
+package net.caprazzi.giddone.model;
+
+import net.caprazzi.giddone.parsing.SourceFile;
 
 public class CommentLine {
     private final SourceFile source;

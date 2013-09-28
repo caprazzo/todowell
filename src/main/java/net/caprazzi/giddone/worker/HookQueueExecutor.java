@@ -3,22 +3,15 @@ package net.caprazzi.giddone.worker;
 import com.google.common.base.Optional;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+import net.caprazzi.giddone.GiddoneWorkerService;
 import net.caprazzi.giddone.RandomStringGenerator;
-import net.caprazzi.giddone.deploy.DeployService;
-import net.caprazzi.giddone.deploy.PresentationService;
 import net.caprazzi.giddone.hook.HookQueueClient;
-import net.caprazzi.giddone.hook.PostReceiveHook;
-import net.caprazzi.giddone.hook.QueueElement;
-import net.caprazzi.giddone.parsing.Todo;
-import net.caprazzi.giddone.parsing.TodoRecord;
-import net.caprazzi.giddone.parsing.TodoSnapshot;
+import net.caprazzi.giddone.model.QueueElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 
 import java.io.IOException;
-import java.util.Date;
-import java.util.LinkedList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -29,20 +22,16 @@ public class HookQueueExecutor {
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
     private final HookQueueClient client;
     private final long pollDelay;
-    private final RepositoryParser repositoryParser;
-    private final DeployService deployService;
-    private final PresentationService presentationService;
+    private final GiddoneWorkerService worker;
 
     private final String executorId = RandomStringGenerator.randomString();
     private long jobCount = 0;
 
     @Inject
-    public HookQueueExecutor(HookQueueClient client, @Named("hook-worker-polling") long pollDelay, RepositoryParser repositoryParser, DeployService deployService, PresentationService presentationService) {
+    public HookQueueExecutor(HookQueueClient client, @Named("hook-worker-polling") long pollDelay, GiddoneWorkerService worker) {
         this.client = client;
         this.pollDelay = pollDelay;
-        this.repositoryParser = repositoryParser;
-        this.deployService = deployService;
-        this.presentationService = presentationService;
+        this.worker = worker;
     }
 
     private Optional<QueueElement> next() {
@@ -74,7 +63,7 @@ public class HookQueueExecutor {
                     Log.info("Job {} started", jobCount);
 
                     try {
-                        process(value.get().getValue());
+                        worker.work(value.get().getValue());
                         try {
                             client.success(value.get().getId());
                         }
@@ -102,23 +91,6 @@ public class HookQueueExecutor {
                 MDC.remove("executorId");
             }
         });
-    }
-
-    // TODO: move the processing part to a Worker class
-    private void process(PostReceiveHook hook) throws Exception {
-        Iterable<Todo> todos = repositoryParser.parse(hook.getRepository().getCloneUrl(), hook.getBranch());
-
-        // TODO: would be interesting to try and keep the iterable abstraction
-        LinkedList<TodoRecord> records = new LinkedList<TodoRecord>();
-        for(Todo todo : todos) {
-            records.add(TodoRecord.from(todo));
-        }
-
-        TodoSnapshot snapshot = new TodoSnapshot(new Date(), hook, records);
-
-        String html = presentationService.asHtml(snapshot);
-
-        deployService.deployHtmlPage(snapshot, html);
     }
 
     private void sleep(long pollDelay) {

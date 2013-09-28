@@ -10,7 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.google.inject.Inject;
 import net.caprazzi.giddone.parsing.Repository;
-import net.caprazzi.giddone.parsing.TodoSnapshot;
+import net.caprazzi.giddone.model.TodoSnapshot;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

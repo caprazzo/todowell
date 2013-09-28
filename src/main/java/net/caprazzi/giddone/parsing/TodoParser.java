@@ -1,6 +1,8 @@
 package net.caprazzi.giddone.parsing;
 
 import com.google.common.base.Optional;
+import net.caprazzi.giddone.model.CommentLine;
+import net.caprazzi.giddone.model.Todo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

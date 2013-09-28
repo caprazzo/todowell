@@ -1,5 +1,7 @@
 package net.caprazzi.giddone.parsing;
 
+import com.codahale.metrics.Timer;
+import net.caprazzi.giddone.Meters;
 import net.caprazzi.giddone.model.CommentLine;
 import net.caprazzi.giddone.model.Language;
 import org.apache.commons.io.FileUtils;
@@ -44,7 +46,7 @@ public class CommentParser {
     public Iterable<CommentLine> parse(Iterable<SourceFile> sourceFiles) throws IOException {
         Log.info("Parsing started");
         ArrayList<CommentLine> commentLines = new ArrayList<CommentLine>();
-
+        Timer.Context timer = Meters.system.commentParsing.time();
         try {
             for(SourceFile file : sourceFiles) {
                 // TODO: meter file parsing time
@@ -53,9 +55,13 @@ public class CommentParser {
                 }
             }
             Log.info("Parsing completed with {} comment lines", commentLines.size());
+            Meters.repositories.comments.update(commentLines.size());
         }
         catch (IOException ex) {
             Log.error("Parsing failure: {}", ex);
+        }
+        finally {
+            timer.stop();
         }
         return commentLines;
     }

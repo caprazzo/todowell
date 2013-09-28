@@ -1,9 +1,11 @@
 package net.caprazzi.giddone.worker;
 
+import com.codahale.metrics.Timer;
 import com.google.common.base.Optional;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import net.caprazzi.giddone.GiddoneWorkerService;
+import net.caprazzi.giddone.Meters;
 import net.caprazzi.giddone.RandomStringGenerator;
 import net.caprazzi.giddone.hook.HookQueueClient;
 import net.caprazzi.giddone.model.QueueElement;

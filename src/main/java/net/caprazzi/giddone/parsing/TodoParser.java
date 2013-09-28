@@ -1,6 +1,8 @@
 package net.caprazzi.giddone.parsing;
 
+import com.codahale.metrics.Timer;
 import com.google.common.base.Optional;
+import net.caprazzi.giddone.Meters;
 import net.caprazzi.giddone.model.CommentLine;
 import net.caprazzi.giddone.model.Todo;
 import org.slf4j.Logger;
@@ -33,7 +35,7 @@ public class TodoParser {
     public Iterable<Todo> parse(Iterable<CommentLine> comments) {
         Log.info("Parsing started");
         ArrayList<Todo> todos = new ArrayList<Todo>();
-
+        Timer.Context timer = Meters.system.todoParsing.time();
         try {
             for(CommentLine line : comments) {
                 String comment = line.getComment();
@@ -42,9 +44,13 @@ public class TodoParser {
                 }
             }
             Log.info("Parsing completed with {} todo lines", todos.size());
+            Meters.repositories.todos.update(todos.size());
         }
         catch(Exception ex) {
             Log.error("Parsing failure: {}", ex);
+        }
+        finally {
+            timer.stop();
         }
         return todos;
     }

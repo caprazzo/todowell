@@ -1,8 +1,10 @@
 package net.caprazzi.giddone.cloning;
 
+import com.codahale.metrics.Timer;
 import com.google.common.base.Joiner;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+import net.caprazzi.giddone.Meters;
 import net.caprazzi.giddone.model.Clone;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
@@ -29,7 +31,7 @@ public class CloneService {
         Path workerDir = Files.createTempDirectory(tempDir, "worker-");
         File workerLog = new File(workerDir.toFile(), "worker.log");
         Log.info("Cloning started workDir={}", workerDir);
-
+        Timer.Context timer = Meters.system.cloning.time();
         try {
 
 
@@ -57,6 +59,9 @@ public class CloneService {
         catch (Exception ex) {
             Log.error("Cloning failed: {}", ex);
             return new Clone(false, null, workerLog, workerDir, null);
+        }
+        finally {
+            timer.stop();
         }
     }
 

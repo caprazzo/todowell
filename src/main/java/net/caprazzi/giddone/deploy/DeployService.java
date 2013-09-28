@@ -6,9 +6,11 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.codahale.metrics.Timer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.google.inject.Inject;
+import net.caprazzi.giddone.Meters;
 import net.caprazzi.giddone.parsing.Repository;
 import net.caprazzi.giddone.model.TodoSnapshot;
 import org.slf4j.Logger;
@@ -34,6 +36,8 @@ public class DeployService {
 
         Log.info("Deploy started to {}/{}", bucket, keyName);
 
+
+
         ObjectMetadata meta = new ObjectMetadata();
         meta.setContentType("text/html");
         meta.setContentEncoding("UTF-8");
@@ -42,6 +46,7 @@ public class DeployService {
         PutObjectRequest request = new PutObjectRequest(bucket, keyName, gzip(html), meta);
         request.setCannedAcl(CannedAccessControlList.PublicRead);
 
+        Timer.Context timer = Meters.system.deploying.time();
         try {
             s3Client.putObject(request);
         }
@@ -51,6 +56,9 @@ public class DeployService {
         }
         catch (AmazonClientException ace) {
             Log.error("Deploy failed with AWS Client Exception: {}", ace);
+        }
+        finally {
+            timer.stop();
         }
 
         Log.info("Deploy success");

@@ -116,8 +116,6 @@ public class HookQueueExecutor {
         String html = presentationService.asHtml(snapshot);
 
         deployService.deployHtmlPage(snapshot, html);
-
-        // TODO: cleanup old repos if there are no errors
     }
 
     private void sleep(long pollDelay) {

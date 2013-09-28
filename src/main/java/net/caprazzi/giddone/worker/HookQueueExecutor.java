@@ -111,7 +111,6 @@ public class HookQueueExecutor {
         // TODO: would be interesting to try and keep the iterable abstraction
         LinkedList<TodoRecord> records = new LinkedList<TodoRecord>();
         for(Todo todo : todos) {
-            System.out.println("\t" + todo.getComment().getSource().getFile().getFileName() + ":\t" + todo.getLabel() + ": " + todo.getTodo());
             records.add(TodoRecord.from(todo));
         }
 

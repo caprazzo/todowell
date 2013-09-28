@@ -44,7 +44,7 @@ public class SourceFileScanner {
                     return FileVisitResult.CONTINUE;
                 }
             });
-            Log.info("Scanning completed with {}", sourceFiles.size());
+            Log.info("Scanning completed with {} source files", sourceFiles.size());
         }
         catch (IOException ex) {
             Log.error("Scanning failure: {}", ex);

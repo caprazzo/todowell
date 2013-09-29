@@ -1,6 +1,8 @@
 package net.caprazzi.giddone.model;
 
 import net.caprazzi.giddone.parsing.SourceFile;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class CommentLine {
     private final SourceFile source;
@@ -30,5 +32,14 @@ public class CommentLine {
         int index = line.indexOf(prefix) + prefix.length();
         String result = line.substring(index).trim();
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+            .append(source)
+            .append(lineNumber)
+            .append(line)
+            .toString();
     }
 }

@@ -56,7 +56,7 @@ public class TodoParserTest {
     }
 
     @Theory
-    public void should_not_parse_valid_todo_coomments(@ValidTodoComments Object source) {
+    public void should_not_parse_invalid_todo_comments(@InvalidTodoComments Object source) {
         Optional<Todo> parsed = new TodoParser().parse((CommentLine) source);
         Assert.assertFalse(parsed.isPresent());
     }

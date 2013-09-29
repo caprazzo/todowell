@@ -12,6 +12,7 @@ import com.yammer.dropwizard.client.HttpClientBuilder;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
 import net.caprazzi.giddone.healthchecks.AwsS3HealthCheck;
+import net.caprazzi.giddone.hook.HookQueueClient;
 import net.caprazzi.giddone.model.CommentStyle;
 import net.caprazzi.giddone.model.Language;
 import net.caprazzi.giddone.model.Languages;
@@ -50,6 +51,8 @@ public class GiddoneService extends Service<GiddoneServiceConfiguration> {
         final AwsS3HealthCheck instance = injector.getInstance(AwsS3HealthCheck.class);
         environment.addHealthCheck(instance);
 
+        final HookQueueClient hook = injector.getInstance(HookQueueClient.class);
+
         healthCheckExecutor.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
@@ -63,6 +66,16 @@ public class GiddoneService extends Service<GiddoneServiceConfiguration> {
                 Log.info("-- MARK --");
             }
         }, 0 ,1, TimeUnit.MINUTES);
+
+        healthCheckExecutor.scheduleAtFixedRate(new Runnable() {
+            public void run() {
+                try {
+                    hook.cleanupCompleted();
+                } catch (IOException e) {
+                    Log.error("Exception while executing cleanup task: {}", e);
+                }
+            }
+        }, 0, 1, TimeUnit.HOURS);
 
         environment.addResource(injector.getInstance(GiddoneResource.class));
         injector.getInstance(HookQueueExecutor.class).start();

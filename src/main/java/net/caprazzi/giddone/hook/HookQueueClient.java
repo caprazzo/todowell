@@ -10,6 +10,7 @@ import net.caprazzi.giddone.model.QueueElement;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
@@ -105,4 +106,14 @@ public class HookQueueClient {
         }
     }
 
+    public void cleanupCompleted() throws IOException {
+        HttpPost post = new HttpPost(baseUrl + "/github/post-receive-hooks/cleanup");
+        Log.debug("Cleaning up cqueue");
+        try {
+            client.execute(post);
+        }
+        finally {
+            post.releaseConnection();
+        }
+    }
 }

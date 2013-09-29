@@ -1,0 +1,10 @@
+"// TODO: is-comment is-todo"
+"    // TODO: is-comment is-todo            "
+"some text here // TODO: is-comment is-todo"
+"// XXX: is-comment not-todo            "
+"// is-comment not-todo
+"        // is-comment not-todo        "
+"some text here // is-comment not-todo"
+"not-comment not-todo     "
+"    not-comment not-todo"
+

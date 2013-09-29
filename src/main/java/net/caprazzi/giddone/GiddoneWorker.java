@@ -13,7 +13,7 @@ import net.caprazzi.giddone.worker.SourceFileScanner;
 import java.util.Date;
 import java.util.LinkedList;
 
-public class GiddoneWorkerService {
+public class GiddoneWorker {
 
     private final CloneService cloneService;
     private final SourceFileScanner scanner;
@@ -23,7 +23,7 @@ public class GiddoneWorkerService {
     private final DeployService deployService;
 
     @Inject
-    public GiddoneWorkerService(CloneService cloneService, SourceFileScanner scanner, CommentParser commentParser, TodoParser todoParser, PresentationService presentationService, DeployService deployService) {
+    public GiddoneWorker(CloneService cloneService, SourceFileScanner scanner, CommentParser commentParser, TodoParser todoParser, PresentationService presentationService, DeployService deployService) {
         this.cloneService = cloneService;
         this.scanner = scanner;
         this.commentParser = commentParser;

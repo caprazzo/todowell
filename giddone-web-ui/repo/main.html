@@ -1,7 +1,11 @@
 <div class="wrapper" ng-app ng-controller="TodoCtrl">
-    <div class="header">
-        <div class="container clearfix">
-
+    <div class="container">
+        <div class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="http://giddone.s3-website-us-east-1.amazonaws.com/">Giddone</a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="site">
@@ -23,9 +27,9 @@
                             <!-- TODO: dynamically build repo url based on branch -->
                             <a href="https://github.com/{{ snapshot.repo.user }}/{{ snapshot.repo.repo }}/tree/{{ snapshot.repo.branch }}" rel="repo">{{ snapshot.repo.repo }}</a>
                         </span>
-                    </strong>
+                    </strong><br/>
+                    <small><span class="branch-label">branch:</span> <span class="branch-name">{{ snapshot.repo.branch }}</span></small></h2>
                 </h1>
-                <h2><span class="branch-label">repository:</span> <span class="branch-name">{{ snapshot.repo.branch }}</span></h2>
             </div>
         </div>
 

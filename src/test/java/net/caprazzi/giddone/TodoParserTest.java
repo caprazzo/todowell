@@ -2,7 +2,7 @@ package net.caprazzi.giddone;
 
 import com.google.common.base.Optional;
 import net.caprazzi.giddone.model.CommentLine;
-import net.caprazzi.giddone.model.CommentStrategy;
+import net.caprazzi.giddone.model.CommentStyle;
 import net.caprazzi.giddone.model.Language;
 import net.caprazzi.giddone.model.Todo;
 import net.caprazzi.giddone.parsing.*;
@@ -18,7 +18,7 @@ import java.util.List;
 @RunWith(Theories.class)
 public class TodoParserTest {
 
-    private static final Language bavaLanguage = new Language("Bava", "bava", CommentStrategy.DoubleSlash);
+    private static final Language bavaLanguage = new Language("Bava", "bava", CommentStyle.Java);
     private static final SourceFile bavaSourceFile = new SourceFile(null, null, bavaLanguage);
 
     private static PotentialAssignment objectAssignment(Object obejct) {

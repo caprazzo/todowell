@@ -1,6 +1,6 @@
 package net.caprazzi.giddone.model;
 
-import net.caprazzi.giddone.model.CommentStrategy;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -10,12 +10,12 @@ public class Language {
 
     private final String name;
     private final String extension;
-    private final CommentStrategy commentStrategy;
+    private final CommentStyle style;
 
-    public Language(String name, String extension, CommentStrategy commentStrategy) {
+    public Language(@JsonProperty("name") String name, @JsonProperty("extension") String extension, @JsonProperty("style") CommentStyle commentStrategy) {
         this.name = name;
         this.extension = extension;
-        this.commentStrategy = commentStrategy;
+        this.style = commentStrategy;
     }
 
     public String getName() {
@@ -26,13 +26,13 @@ public class Language {
         return extension;
     }
 
-    public CommentStrategy getCommentStrategy() {
-        return commentStrategy;
+    public CommentStyle getStyle() {
+        return style;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, extension, commentStrategy);
+        return Objects.hash(name, extension, style);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Language {
         final Language other = (Language) obj;
         return Objects.equals(name, other.name)
                 && Objects.equals(extension, other.extension)
-                && Objects.equals(commentStrategy, other.commentStrategy);
+                && Objects.equals(style, other.style);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class Language {
         return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
             .append(name)
             .append(extension)
-            .append(commentStrategy)
+            .append(style)
             .toString();
     }
 }

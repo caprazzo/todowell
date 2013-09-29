@@ -11,36 +11,28 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class CommentParser {
 
     private static final Logger Log = LoggerFactory.getLogger(CommentParser.class);
 
-    private final Iterable<CommentLine> parse(SourceFile source) throws IOException {
-
-
+    public final Iterable<CommentLine> parse(SourceFile source, Iterator<String> lines) {
         LinkedList<CommentLine> comments = new LinkedList<CommentLine>();
-
-        LineIterator it = FileUtils.lineIterator(source.getFile().toFile(), "UTF-8");
-        try {
-            int lineNumber = 1;
-            while (it.hasNext()) {
-                String line = it.nextLine();
-                if (isComment(line, source.getLanguage())) {
-                    comments.add(new CommentLine(source, lineNumber, line));
-                }
-                lineNumber++;
+        int lineNumber = 1;
+        while (lines.hasNext()) {
+            String line = lines.next();
+            if (isComment(line, source.getLanguage())) {
+                comments.add(new CommentLine(source, lineNumber, line));
             }
-        } finally {
-            LineIterator.closeQuietly(it);
+            lineNumber++;
         }
-
         return comments;
     }
 
     private boolean isComment(String line, Language language) {
-        return line != null && line.trim().startsWith(language.getCommentStrategy().singleCommentStart());
+        return line != null && line.trim().startsWith(language.getStyle().singleCommentStart());
     }
 
     public Iterable<CommentLine> parse(Iterable<SourceFile> sourceFiles) throws IOException {
@@ -49,9 +41,14 @@ public class CommentParser {
         Timer.Context timer = Meters.system.commentParsing.time();
         try {
             for(SourceFile file : sourceFiles) {
-                // TODO: meter file parsing time
-                for (CommentLine line : parse(file)) {
-                    commentLines.add(line);
+                LineIterator lines = FileUtils.lineIterator(file.getFile().toFile(), "UTF-8");
+                try {
+                    for (CommentLine line : parse(file, lines)) {
+                        commentLines.add(line);
+                    }
+                }
+                finally {
+                    LineIterator.closeQuietly(lines);
                 }
             }
             Log.info("Parsing completed with {} comment lines", commentLines.size());

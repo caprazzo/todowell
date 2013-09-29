@@ -1,5 +1,6 @@
 http:
-    port: 8080
+    port: 8180
+    adminPort: 8180
 
 hookQueueUrl: http://gitdone-receive-hook.herokuapp.com
 hookQueuePolling: 5000
@@ -22,3 +23,40 @@ logging:
         archivedFileCount: 5
         timeZone: UTC
 
+languages:
+    -
+        name: Java
+        extension: java
+        style: Java
+    -
+        name: Scala
+        extension: scala
+        style: Java
+    -
+        name: C++
+        extension: cpp
+        style: Java
+    -
+        name: C++
+        extension: cxx
+        style: Java
+    -
+        name: Javascript
+        extension: js
+        style: Java
+    -
+        name: PHP
+        extension: php
+        style: Java
+    -
+        name: shell
+        extension: sh
+        style: Shell
+    -
+        name: python
+        extension: py
+        style: Shell
+    -
+        name: CoffeeScript
+        extension: coffee
+        style: Shell

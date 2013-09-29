@@ -13,7 +13,8 @@ public class PresentationService {
     }
 
     public String asHtml(TodoSnapshot snapshot) throws Exception {
-        return htmlTemplate(asJson(snapshot));
+        String title = snapshot.getRepo().getUser() + "/" + snapshot.getRepo().getRepo() + "/" + snapshot.getRepo().getBranch();
+        return htmlTemplate(title,asJson(snapshot));
     }
 
     private String asJson(TodoSnapshot snapshot) throws Exception {
@@ -21,13 +22,13 @@ public class PresentationService {
     }
 
     // TODO: get and cache template from config
-    private String htmlTemplate(String snapshotJson) {
+    private String htmlTemplate(String title, String snapshotJson) {
         return "<!DOCTYPE html>\n" +
                 "<html>\n" +
                 "<head>\n" +
                 "    <script id=\"snapshot\">function snapshot() { return "  + snapshotJson + "; }</script>\n" +
                 "    <script src=\"/giddone/giddone.js\"></script>\n" +
-                "    <title>Giddone</title>\n" +
+                "    <title>Giddone - " + title + "</title>\n" +
                 "</head>\n" +
                 "<body>\n" +
                 "<div ng-app ng-controller=\"MainCtrl\" ng-include src=\"mainUrl\"></div>\n" +

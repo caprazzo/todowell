@@ -28,7 +28,7 @@ public class CommentLine {
     }
 
     public String getComment() {
-        String prefix = source.getLanguage().getCommentStrategy().singleCommentStart();
+        String prefix = source.getLanguage().getStyle().singleCommentStart();
         int index = line.indexOf(prefix) + prefix.length();
         String result = line.substring(index).trim();
         return result;

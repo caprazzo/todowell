@@ -12,7 +12,7 @@ import com.yammer.dropwizard.client.HttpClientBuilder;
 import com.yammer.dropwizard.config.Bootstrap;
 import com.yammer.dropwizard.config.Environment;
 import net.caprazzi.giddone.healthchecks.AwsS3HealthCheck;
-import net.caprazzi.giddone.model.CommentStrategy;
+import net.caprazzi.giddone.model.CommentStyle;
 import net.caprazzi.giddone.model.Language;
 import net.caprazzi.giddone.model.Languages;
 import net.caprazzi.giddone.resources.GiddoneResource;
@@ -30,7 +30,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class GiddoneService extends Service<GiddoneWorkerServiceConfiguration> {
+public class GiddoneService extends Service<GiddoneServiceConfiguration> {
 
     private static final Logger Log = LoggerFactory.getLogger(GiddoneService.class);
     private static final ScheduledExecutorService healthCheckExecutor = Executors.newSingleThreadScheduledExecutor();
@@ -40,12 +40,12 @@ public class GiddoneService extends Service<GiddoneWorkerServiceConfiguration> {
     }
 
     @Override
-    public void initialize(Bootstrap<GiddoneWorkerServiceConfiguration> bootstrap) {
+    public void initialize(Bootstrap<GiddoneServiceConfiguration> bootstrap) {
 
     }
 
     @Override
-    public void run(GiddoneWorkerServiceConfiguration configuration, Environment environment) throws Exception {
+    public void run(GiddoneServiceConfiguration configuration, Environment environment) throws Exception {
         Injector injector = Guice.createInjector(new ServiceModule(configuration));
         final AwsS3HealthCheck instance = injector.getInstance(AwsS3HealthCheck.class);
         environment.addHealthCheck(instance);
@@ -70,9 +70,9 @@ public class GiddoneService extends Service<GiddoneWorkerServiceConfiguration> {
 
     private static class ServiceModule extends AbstractModule {
 
-        private final GiddoneWorkerServiceConfiguration configuration;
+        private final GiddoneServiceConfiguration configuration;
 
-        public ServiceModule(GiddoneWorkerServiceConfiguration configuration) {
+        public ServiceModule(GiddoneServiceConfiguration configuration) {
             this.configuration = configuration;
         }
 
@@ -93,7 +93,7 @@ public class GiddoneService extends Service<GiddoneWorkerServiceConfiguration> {
             bind(String.class).annotatedWith(Names.named("hook-queue-url")).toInstance(configuration.getHookQueueUrl());
             bind(Path.class).annotatedWith(Names.named("worker-temp-dir")).toInstance(tempDir);
             bind(Long.class).annotatedWith(Names.named("hook-worker-polling")).toInstance(configuration.getHookQueuePolling());
-            bind(Languages.class).toInstance(new Languages(new Language("Java", "java", CommentStrategy.DoubleSlash)));
+            bind(Languages.class).toInstance(new Languages(new Language("Java", "java", CommentStyle.Java)));
 
             bind(AmazonS3.class).toInstance(new AmazonS3Client(new BasicAWSCredentials(configuration.getAws().getAWSAccessKeyId(), configuration.getAws().getAWSSecretKey())));
         }

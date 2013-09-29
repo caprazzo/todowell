@@ -1,30 +1,35 @@
 package net.caprazzi.giddone.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 public class Repository {
-    @JsonProperty
-    private String url;
+    private final String user;
+    private final String repo;
+    private final String url;
+    private final String branch;
 
-    @JsonProperty
-    private String name;
+    public Repository(String user, String repo, String url, String branch) {
+        this.user = user;
+        this.repo = repo;
+        this.url = url;
+        this.branch = branch;
+    }
 
-    @JsonProperty
-    private Owner owner;
+    public String getUser() {
+        return user;
+    }
+
+    public String getRepo() {
+        return repo;
+    }
 
     public String getUrl() {
         return url;
     }
 
-    public String getName() {
-        return name;
+    public String getBranch() {
+        return branch;
     }
 
-    public Owner getOwner() {
-        return owner;
-    }
-
-    public String getCloneUrl() {
-        return "git@github.com:" + getOwner().getName() + "/" + getName() + ".git";
+    public static Repository fromHook(PostReceiveHook hook) {
+        return new Repository(hook.getRepository().getOwner().getName(), hook.getRepository().getName(), hook.getRepository().getCloneUrl(), hook.getBranch());
     }
 }

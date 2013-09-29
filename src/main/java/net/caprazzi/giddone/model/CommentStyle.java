@@ -1,11 +1,11 @@
 package net.caprazzi.giddone.model;
 
-public enum CommentStrategy {
-    DoubleSlash("//"),
-    Hash("#");
+public enum CommentStyle {
+    Java("//"),
+    Shell("#");
     private final String singleCommentStart;
 
-    CommentStrategy(String singleCommentStart) {
+    CommentStyle(String singleCommentStart) {
         this.singleCommentStart = singleCommentStart;
     }
 

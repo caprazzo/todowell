@@ -10,7 +10,7 @@ public class PostReceiveHook {
     private String ref;
 
     @JsonProperty
-    private Repository repository;
+    private PostReceiveHookRepository repository;
 
     public String getRef() {
         return ref;
@@ -23,7 +23,7 @@ public class PostReceiveHook {
             .toString();
     }
 
-    public Repository getRepository() {
+    public PostReceiveHookRepository getRepository() {
         return repository;
     }
 

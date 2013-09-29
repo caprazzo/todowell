@@ -1,12 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script id="snapshot">function snapshot() { return {"created":"2013-09-23T06:40:34.009+0000","repo":{"user":"mcaprari","repo":"botto","url":"git@github.com:mcaprari/botto.git","branch":"master"},"todo":[{"file":"botto-connector/src/main/java/botto/xmpp/botto/xmpp/connector/channel/Channel.java","line":6,"label":"TODO","body":"add open/close status"},{"file":"botto-connector/src/main/java/botto/xmpp/botto/xmpp/connector/channel/Channel.java","line":7,"label":"TODO","body":"add connection status"},{"file":"botto-connector/src/main/java/botto/xmpp/botto/xmpp/connector/Connector.java","line":18,"label":"TODO","body":"implement address and channel validation"},{"file":"botto-connector/src/main/java/botto/xmpp/botto/xmpp/connector/Connector.java","line":36,"label":"TODO","body":"check configuration has a minimum validity"},{"file":"botto-connector/src/main/java/botto/xmpp/botto/xmpp/connector/ConnectorId.java","line":6,"label":"TODO","body":"in an ideal world, only the ConnectionManager should be able to create ConnectorId"},{"file":"botto-connector/src/main/java/botto/xmpp/botto/xmpp/connector/ConnectorId.java","line":7,"label":"TODO","body":"use a factory method to create instances"},{"file":"botto-connectors/botto-connector-smack/src/main/java/botto/xmpp/connectors/smack/SmackBotConnection.java","line":40,"label":"TODO","body":"add a SmackBotConfiguration object, or create the XMPPConnection outside"},{"file":"botto-connectors/botto-connector-smack/src/main/java/botto/xmpp/connectors/smack/SmackBotConnection.java","line":48,"label":"TODO","body":"smack specific behaviour should be configurable"},{"file":"botto-connectors/botto-connector-smack/src/main/java/botto/xmpp/connectors/smack/SmackBotConnection.java","line":116,"label":"TODO","body":"remove conn listener"},{"file":"botto-connectors/botto-connector-smack/src/main/java/botto/xmpp/connectors/smack/SmackBotConnection.java","line":119,"label":"TODO","body":"remove packet listener"},{"file":"botto-connectors/botto-connector-smack/src/main/java/botto/xmpp/connectors/smack/SmackConnector.java","line":46,"label":"TODO","body":"all connections should only be started here"},{"file":"botto-connectors/botto-connector-smack/src/main/java/botto/xmpp/connectors/smack/SmackConnector.java","line":51,"label":"TODO","body":"should stop all connections here"},{"file":"botto-connectors/botto-connector-whack/src/main/java/botto/xmpp/connectors/whack/WhackBotComponent.java","line":76,"label":"TODO","body":"does this mean 'connected'?"},{"file":"botto-connectors/botto-connector-whack/src/main/java/botto/xmpp/connectors/whack/WhackConnector.java","line":88,"label":"TODO","body":"enforce address has subdomain and matches domain for this connector"},{"file":"botto-service/src/main/java/botto/xmpp/BotManager.java","line":96,"label":"TODO","body":"abstractBot should be pre-initialized with a BotContext"},{"file":"botto-service/src/main/java/botto/xmpp/BotManager.java","line":146,"label":"TODO","body":"should remove the channel from the registry even if closing fails?"},{"file":"botto-service/src/main/java/botto/xmpp/BotManager.java","line":167,"label":"TODO","body":"mind that not all connectors are thread safe"},{"file":"botto-service/src/main/java/botto/xmpp/BotManager.java","line":184,"label":"TODO","body":"count failure"},{"file":"botto-service/src/main/java/botto/xmpp/BotManager.java","line":185,"label":"TODO","body":"send error to bot"},{"file":"botto-service/src/main/java/botto/xmpp/ChannelRegistry.java","line":15,"label":"TODO","body":"only use address.toBareJID for indexing"},{"file":"botto-service/src/main/java/botto/xmpp/reflection/AnnotatedBotObject.java","line":142,"label":"TODO","body":"shutdown bot (set disconnected and refuse any other action)"}]}; }</script>
-    <script src="giddone.js"></script>
-    <title>Giddone</title>
-    <link rel="icon" type="image/png" href="/giddone-web-ui/turtle.png"/>
+    <title>Giddone - source code todos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="github service to extract todos from source comments">
+    <meta name="author" content="https://github.com/mcaprari">
+    <!-- Bootstrap -->
+    <link rel="shortcut icon" href="turtle.png">
+    <link href="//bootswatch.com/slate/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        .navbar>.container  .navbar-brand {
+            font-style: italics;
+            color: rgb(255, 212, 100);
+            font-family: 'Lobster',cursive;
+            font-weight: bold;
+        }
+        .jumbotron > .container > h1 {
+            color: rgb(255, 212, 100);
+        font-family: 'Lobster',cursive;
+        font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-<div ng-app ng-controller="MainCtrl" ng-include src="mainUrl"></div>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Giddone</h1>
+            <p>Extract TODOs from your github source code.</p>
+            <div class="row text-center">
+                <div class="col-lg-5">
+                       <img width="500" src="assets/images/todo_code.png" alt="screenshot of some source code"/>
+                        <div class="caption text-muted">
+                            <small>
+                                Write Code on Github
+                            </small>
+                        </div>
+                </div>
+                <div class="col-lg-1"></div>
+                <div class="col-lg-5">
+                    <a href="https://s3.amazonaws.com/giddone/mcaprari/botto/master">
+                        <img width="500" src="assets/images/giddone.png" alt="screenshot of giddone todo list"/>
+                    </a>
+                    <div class="caption">
+                        <small>
+                            <span>
+                                <a class="text-muted" href="https://s3.amazonaws.com/giddone/mcaprari/botto/master">See TODOs on Giddone</a>
+                            </span>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Get Started:</h2>
+        <div class="row">
+            <div class="col-lg-5">
+                <h2>1. Add hook to your repo</h2>
+                <ul>
+                    <li>Browse to any of your github repos</li>
+                    <li>Browse to the settings page</li>
+                    <li>Click on "Service Hooks"</li>
+                    <li>Click on "WebHook URLs"</li>
+                    <li>Enter http://gitdone-receive-hook.herokuapp.com/github/post-receive-hooks</li>
+                    <li>Click on "Test Hook"</li>
+                </ul>
+            </div>
+            <div class="col-lg-5">
+                <h2>2. Done</h2>
+                <p>To see your TODOs browse to https://s3.amazonaws.com/giddone/USER/REPO/master</p>
+                <p>For example: <a href="https://s3.amazonaws.com/giddone/mcaprari/botto/master">https://s3.amazonaws.com/giddone/mcaprari/todowell/master</a></p>
+                <p>We'll update your todos page every time you push to this repo</p>
+            </div>
+        </div>
+        <hr>
+        <footer>
+            <p>&copy; Matteo Caprari 2013</p>
+        </footer>
+    </div>
+
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 </body>
 </html>

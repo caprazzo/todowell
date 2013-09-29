@@ -4,11 +4,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.yammer.dropwizard.client.HttpClientConfiguration;
 import com.yammer.dropwizard.config.Configuration;
 import net.caprazzi.giddone.aws.AwsCredentials;
+import net.caprazzi.giddone.model.Language;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
 
-public class GiddoneWorkerServiceConfiguration extends Configuration {
+public class GiddoneServiceConfiguration extends Configuration {
 
     @Valid
     @JsonProperty
@@ -34,6 +36,11 @@ public class GiddoneWorkerServiceConfiguration extends Configuration {
     @JsonProperty
     private String workerTempDir;
 
+    @Valid
+    @NotNull
+    @JsonProperty
+    private Collection<Language> languages;
+
     public HttpClientConfiguration getHttpClient() {
         return httpClient;
     }
@@ -52,5 +59,9 @@ public class GiddoneWorkerServiceConfiguration extends Configuration {
 
     public String getWorkerTempDir() {
         return workerTempDir;
+    }
+
+    public Collection<Language> getLanguages() {
+        return languages;
     }
 }

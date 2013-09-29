@@ -1,7 +1,5 @@
 package net.caprazzi.giddone.model;
 
-import net.caprazzi.giddone.parsing.Repository;
-
 import java.util.Collection;
 import java.util.Date;
 

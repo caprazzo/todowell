@@ -1,11 +1,9 @@
 package net.caprazzi.giddone.worker;
 
-import com.codahale.metrics.Timer;
 import com.google.common.base.Optional;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import net.caprazzi.giddone.GiddoneWorkerService;
-import net.caprazzi.giddone.Meters;
+import net.caprazzi.giddone.GiddoneWorker;
 import net.caprazzi.giddone.RandomStringGenerator;
 import net.caprazzi.giddone.hook.HookQueueClient;
 import net.caprazzi.giddone.model.QueueElement;
@@ -24,13 +22,13 @@ public class HookQueueExecutor {
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
     private final HookQueueClient client;
     private final long pollDelay;
-    private final GiddoneWorkerService worker;
+    private final GiddoneWorker worker;
 
     private final String executorId = RandomStringGenerator.randomString();
     private long jobCount = 0;
 
     @Inject
-    public HookQueueExecutor(HookQueueClient client, @Named("hook-worker-polling") long pollDelay, GiddoneWorkerService worker) {
+    public HookQueueExecutor(HookQueueClient client, @Named("hook-worker-polling") long pollDelay, GiddoneWorker worker) {
         this.client = client;
         this.pollDelay = pollDelay;
         this.worker = worker;
